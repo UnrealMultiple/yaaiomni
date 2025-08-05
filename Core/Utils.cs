@@ -410,7 +410,7 @@ public static partial class Utils
                 return type;
             }
         }
-        throw new TypeLoadException($"Could not find type {name} in TShock");
+        throw new TypeLoadException(GetString($"Could not find type {name} in TShock"));
     }
 
     public static Terraria.Item GetInventory(this Terraria.Player p, short slot)
@@ -540,17 +540,17 @@ public static partial class Utils
             var ld = other.Plugin.GetType().Assembly;
             if (ld.GetName().Name == asm.GetName().Name && other.Plugin != plugin)
             {
-                var em = $"Duplicate {plugin.Name} loaded:";
+                var em = GetString($"Duplicate {plugin.Name} loaded:");
                 if (dict.TryGetValue(ld, out var fileNameWithoutExtension))
                 {
-                    em += Environment.NewLine + $"  --> Loaded:  {fileNameWithoutExtension} (v{ld.GetName().Version})";
+                    em += Environment.NewLine + GetString($"  --> Loaded:  {fileNameWithoutExtension} (v{ld.GetName().Version})");
                 }
                 if (dict.TryGetValue(asm, out fileNameWithoutExtension))
                 {
-                    em += Environment.NewLine + $"  --> Current: {fileNameWithoutExtension} (v{asm.GetName().Version})";
+                    em += Environment.NewLine + GetString($"  --> Current: {fileNameWithoutExtension} (v{asm.GetName().Version})");
                 }
                 TerrariaApi.Server.ServerApi.LogWriter.PluginWriteLine(plugin, em, System.Diagnostics.TraceLevel.Error);
-                throw new OperationCanceledException($"{asm.GetName().Name} already loaded.");
+                throw new OperationCanceledException(GetString($"{asm.GetName().Name} already loaded."));
             }
         }
     }

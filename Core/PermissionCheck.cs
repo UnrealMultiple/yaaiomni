@@ -53,11 +53,11 @@ public partial class Plugin
 
         if (list.Count == 0)
         {
-            args.Player.SendInfoMessage("No permission check history found.");
+            args.Player.SendInfoMessage(GetString("No permission check history found."));
             return;
         }
 
-        args.Player.SendInfoMessage("Permission check history:");
+        args.Player.SendInfoMessage(GetString("Permission check history:"));
         var detailed = args.Parameters.Contains("-v") && args.Player.HasPermission(DefinedConsts.PermissionsList.Admin.DetailedPermissionStackTrace);
 
         foreach (var item in list)

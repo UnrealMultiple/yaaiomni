@@ -21,7 +21,7 @@ public partial class Plugin : TerrariaPlugin
 
         if (!args.Player.HasPermission(DefinedConsts.Permission.TogglePvP))
         {
-            TShockAPI.TShock.Log.ConsoleDebug($"Player {args.Player.Name} tried to toggle PvP to {args.Pvp} without permission {DefinedConsts.Permission.TogglePvP}.");
+            TShockAPI.TShock.Log.ConsoleDebug(GetString($"Player {args.Player.Name} tried to toggle PvP to {args.Pvp} without permission {DefinedConsts.Permission.TogglePvP}."));
             args.Handled = true;
             Terraria.NetMessage.TrySendData((int) PacketTypes.TogglePvp, -1, -1, NetworkText.Empty, args.PlayerId);
             return;
@@ -29,7 +29,7 @@ public partial class Plugin : TerrariaPlugin
 
         if (!args.Player.HasPermission($"{DefinedConsts.Permission.TogglePvP}.{args.Pvp}"))
         {
-            TShockAPI.TShock.Log.ConsoleDebug($"Player {args.Player.Name} tried to toggle PvP to {args.Pvp} without permission {DefinedConsts.Permission.TogglePvP}.{args.Pvp}.");
+            TShockAPI.TShock.Log.ConsoleDebug(GetString($"Player {args.Player.Name} tried to toggle PvP to {args.Pvp} without permission {DefinedConsts.Permission.TogglePvP}.{args.Pvp}."));
             args.Handled = true;
             Terraria.NetMessage.TrySendData((int) PacketTypes.TogglePvp, -1, -1, NetworkText.Empty, args.PlayerId);
             return;
@@ -52,7 +52,7 @@ public partial class Plugin : TerrariaPlugin
 
         if (!args.Player.HasPermission(DefinedConsts.Permission.ToggleTeam))
         {
-            TShockAPI.TShock.Log.ConsoleDebug($"Player {args.Player.Name} tried to toggle team to {args.Team} without permission {DefinedConsts.Permission.ToggleTeam}.");
+            TShockAPI.TShock.Log.ConsoleDebug(GetString($"Player {args.Player.Name} tried to toggle team to {args.Team} without permission {DefinedConsts.Permission.ToggleTeam}."));
             args.Handled = true;
             Terraria.NetMessage.TrySendData((int) PacketTypes.PlayerTeam, -1, -1, NetworkText.Empty, args.PlayerId);
             return;
@@ -60,7 +60,7 @@ public partial class Plugin : TerrariaPlugin
 
         if (!args.Player.HasPermission($"{DefinedConsts.Permission.ToggleTeam}.{args.Team}"))
         {
-            TShockAPI.TShock.Log.ConsoleDebug($"Player {args.Player.Name} tried to toggle team to {args.Team} without permission {DefinedConsts.Permission.ToggleTeam}.{args.Team}.");
+            TShockAPI.TShock.Log.ConsoleDebug(GetString($"Player {args.Player.Name} tried to toggle team to {args.Team} without permission {DefinedConsts.Permission.ToggleTeam}.{args.Team}."));
             args.Handled = true;
             Terraria.NetMessage.TrySendData((int) PacketTypes.PlayerTeam, -1, -1, NetworkText.Empty, args.PlayerId);
             return;
@@ -92,7 +92,7 @@ public partial class Plugin : TerrariaPlugin
             return;
         }
 
-        TShockAPI.TShock.Log.ConsoleDebug($"Player {player.Name} tried to sync loadout without permission {DefinedConsts.Permission.SyncLoadout}.");
+        TShockAPI.TShock.Log.ConsoleDebug(GetString($"Player {player.Name} tried to sync loadout without permission {DefinedConsts.Permission.SyncLoadout}."));
         args.CancelPacket();
         Terraria.NetMessage.TrySendData((int) PacketTypes.SyncLoadout, -1, -1, null, args.Instance.whoAmI, player.TPlayer.CurrentLoadoutIndex);
     }
@@ -118,7 +118,7 @@ public partial class Plugin : TerrariaPlugin
             {
                 if (!TShockAPI.TShock.Players[args.Instance.whoAmI].HasPermission($"{DefinedConsts.Permission.SummonBoss}.{index}"))
                 {
-                    TShockAPI.TShock.Log.ConsoleInfo($"Player {TShockAPI.TShock.Players[args.Instance.whoAmI].Name} tried to summon boss {index} without permission {DefinedConsts.Permission.SummonBoss}.{index}.");
+                    TShockAPI.TShock.Log.ConsoleInfo(GetString($"Player {TShockAPI.TShock.Players[args.Instance.whoAmI].Name} tried to summon boss {index} without permission {DefinedConsts.Permission.SummonBoss}.{index}."));
                     Terraria.NetMessage.TrySendData((int) PacketTypes.NpcUpdate, args.Instance.whoAmI, -1, null, index);
                     args.Result = OTAPI.HookResult.Cancel;
                 }
@@ -129,7 +129,7 @@ public partial class Plugin : TerrariaPlugin
             var id = args.Read<short>(2);
             if (!TShockAPI.TShock.Players[args.Instance.whoAmI].HasPermission($"{DefinedConsts.Permission.SummonBoss}.{id}"))
             {
-                TShockAPI.TShock.Log.ConsoleInfo($"Player {TShockAPI.TShock.Players[args.Instance.whoAmI].Name} tried to summon boss {id} without permission {DefinedConsts.Permission.SummonBoss}.{id}.");
+                TShockAPI.TShock.Log.ConsoleInfo(GetString($"Player {TShockAPI.TShock.Players[args.Instance.whoAmI].Name} tried to summon boss {id} without permission {DefinedConsts.Permission.SummonBoss}.{id}."));
                 args.Result = OTAPI.HookResult.Cancel;
             }
         }
@@ -138,7 +138,7 @@ public partial class Plugin : TerrariaPlugin
             var id = args.Read<short>(4);
             if (id == Terraria.ID.NPCID.DukeFishron && !TShockAPI.TShock.Players[args.Instance.whoAmI].HasPermission($"{DefinedConsts.Permission.SummonBoss}.{id}"))
             {
-                TShockAPI.TShock.Log.ConsoleInfo($"Player {TShockAPI.TShock.Players[args.Instance.whoAmI].Name} tried to summon boss {id} without permission {DefinedConsts.Permission.SummonBoss}.{id}.");
+                TShockAPI.TShock.Log.ConsoleInfo(GetString($"Player {TShockAPI.TShock.Players[args.Instance.whoAmI].Name} tried to summon boss {id} without permission {DefinedConsts.Permission.SummonBoss}.{id}."));
                 args.Result = OTAPI.HookResult.Cancel;
             }
         }

@@ -28,7 +28,7 @@ public partial class Plugin
         }
         if (addperm.Length == 0)
         {
-            TShockAPI.TSPlayer.Server.SendInfoMessage($"Failed to add permissions to group {Misc.VanillaGroup}.");
+            TShockAPI.TSPlayer.Server.SendInfoMessage(GetString($"Failed to add permissions to group {Misc.VanillaGroup}."));
         }
 
         var vg = TShockAPI.TShock.Groups.GetGroupByName(Misc.VanillaGroup);
@@ -37,7 +37,7 @@ public partial class Plugin
         group = Utils.ParentGroup(group, _ => true);
         if (group == null)
         {
-            TShockAPI.TSPlayer.Server.SendErrorMessage($"Failed to find group {TShockAPI.TShock.Config.Settings.DefaultRegistrationGroupName}.");
+            TShockAPI.TSPlayer.Server.SendErrorMessage(GetString($"Failed to find group {TShockAPI.TShock.Config.Settings.DefaultRegistrationGroupName}."));
             return;
         }
         if (group.Name != Misc.VanillaGroup)
@@ -48,7 +48,7 @@ public partial class Plugin
             }
             catch (Exception e)
             {
-                TShockAPI.TSPlayer.Server.SendInfoMessage($"Failed to set parent group to {Misc.VanillaGroup}: {e}");
+                TShockAPI.TSPlayer.Server.SendInfoMessage(GetString($"Failed to set parent group to {Misc.VanillaGroup}: {e}"));
             }
         }
     }

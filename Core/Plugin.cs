@@ -31,7 +31,7 @@ public partial class Plugin : TerrariaPlugin
         var pa = System.Runtime.InteropServices.RuntimeInformation.ProcessArchitecture;
         if (pa is not System.Runtime.InteropServices.Architecture.X64 and not System.Runtime.InteropServices.Architecture.X86)
         {
-            Console.WriteLine($"TShock is running under {pa}, some features may not work.");
+            Console.WriteLine(GetString($"TShock is running under {pa}, some features may not work."));
         }
 
         this.Order = -1_000_000;
@@ -50,12 +50,12 @@ public partial class Plugin : TerrariaPlugin
                 if (encoding == -1)
                 {
                     Console.OutputEncoding = System.Text.Encoding.GetEncoding(System.Globalization.CultureInfo.CurrentUICulture.TextInfo.ANSICodePage);
-                    Console.WriteLine($"Console encoding set to default ({Console.OutputEncoding.EncodingName})");
+                    Console.WriteLine(GetString($"Console encoding set to default ({Console.OutputEncoding.EncodingName})"));
                 }
                 else
                 {
                     Console.OutputEncoding = System.Text.Encoding.GetEncoding(encoding);
-                    Console.WriteLine($"Console encoding set to {Console.OutputEncoding.EncodingName}");
+                    Console.WriteLine(GetString($"Console encoding set to {Console.OutputEncoding.EncodingName}"));
                 }
             }
         }
@@ -191,7 +191,7 @@ public partial class Plugin : TerrariaPlugin
         }
         catch (Exception ex)
         {
-            initiator?.SendErrorMessage($"Failed to load config: {ex.Message}");
+            initiator?.SendErrorMessage(GetString($"Failed to load config: {ex.Message}"));
         }
 
         this.config ??= new Config();
@@ -207,25 +207,25 @@ public partial class Plugin : TerrariaPlugin
         }
         catch (Exception ex)
         {
-            initiator?.SendErrorMessage($"Failed to save config: {ex.Message}");
+            initiator?.SendErrorMessage(GetString($"Failed to save config: {ex.Message}"));
         }
 
         var spamlim = this.config.Mitigation.Value.ChatSpamRestrict.Value;
         if (spamlim.Count > 0)
         {
-            initiator?.SendInfoMessage("ChatSpam limit applied:");
+            initiator?.SendInfoMessage(GetString("ChatSpam limit applied:"));
             foreach (var limiter in spamlim)
             {
-                initiator?.SendInfoMessage($"  {Math.Round(limiter.Maximum / limiter.RateLimit, 1):G} messages per {Math.Round(limiter.Maximum, 1):G} seconds");
+                initiator?.SendInfoMessage(GetString($"  {Math.Round(limiter.Maximum / limiter.RateLimit, 1):G} messages per {Math.Round(limiter.Maximum, 1):G} seconds"));
             }
         }
         var connlim = this.config.Mitigation.Value.ConnectionLimit.Value;
         if (connlim.Count > 0)
         {
-            initiator?.SendInfoMessage("Connection limit applied:");
+            initiator?.SendInfoMessage(GetString("Connection limit applied:"));
             foreach (var limiter in connlim)
             {
-                initiator?.SendInfoMessage($"  {Math.Round(limiter.Maximum / limiter.RateLimit, 1):G} connections per IP per {Math.Round(limiter.Maximum, 1):G} seconds");
+                initiator?.SendInfoMessage(GetString($"  {Math.Round(limiter.Maximum / limiter.RateLimit, 1):G} connections per IP per {Math.Round(limiter.Maximum, 1):G} seconds"));
             }
         }
     }
@@ -281,11 +281,11 @@ public partial class Plugin : TerrariaPlugin
         {
             if (!TShockAPI.DB.Identifier.Available.Any(i => i.Prefix == "namea:"))
             {
-                TShockAPI.DB.Identifier.Register("namea:", "An identifier for Regex matching the character name (e.g. namea:^.{8,}$)");
+                TShockAPI.DB.Identifier.Register("namea:", GetString("An identifier for Regex matching the character name (e.g. namea:^.{8,}$)"));
             }
             if (!TShockAPI.DB.Identifier.Available.Any(i => i.Prefix == "ipa:"))
             {
-                TShockAPI.DB.Identifier.Register("ipa:", "An identifier for IP address with subnet mask (e.g. ipa:1.2.3.4/24)");
+                TShockAPI.DB.Identifier.Register("ipa:", GetString("An identifier for IP address with subnet mask (e.g. ipa:1.2.3.4/24)"));
             }
         }
     }
@@ -317,7 +317,7 @@ public partial class Plugin : TerrariaPlugin
                 hook.Apply();
             }
         }
-        e?.Player?.SendSuccessMessage($"{this.Name} loaded.");
+        e?.Player?.SendSuccessMessage(GetString($"{this.Name} loaded."));
     }
 
     public override void Initialize()
@@ -442,7 +442,7 @@ public partial class Plugin : TerrariaPlugin
         {
             if (!Terraria.Program.LaunchParameters.TryAdd("-ip", System.Net.IPAddress.IPv6Any.ToString()))
             {
-                TShockAPI.TShock.Log.Warn("Listening on existing address, attempts to enable IPv6 dual-stack without -ip.");
+                TShockAPI.TShock.Log.Warn(GetString("Listening on existing address, attempts to enable IPv6 dual-stack without -ip."));
             }
         }
     }

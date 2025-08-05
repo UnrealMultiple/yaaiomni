@@ -73,7 +73,7 @@ public partial class Plugin
             {
                 Interlocked.Increment(ref this.Statistics.MitigationRejectedConnection);
                 client.Close();
-                TShockAPI.TShock.Log.ConsoleInfo($"Connection from {tcpa.Address} ({tcpa.Port}) rejected due to connection limit.");
+                TShockAPI.TShock.Log.ConsoleInfo(GetString($"Connection from {tcpa.Address} ({tcpa.Port}) rejected due to connection limit."));
                 return;
             }
         }
@@ -98,7 +98,7 @@ public partial class Plugin
             {
                 if (!this._connPool.AttachedData.TryGetValue(Terraria.Netplay.Clients[i].Socket, out var ct))
                 {
-                    throw new Exception("Connection time not found");
+                    throw new Exception(GetString("Connection time not found"));
                 }
 
                 var time = new TimeSpan(DateTime.Now.Ticks).TotalSeconds;
@@ -110,7 +110,7 @@ public partial class Plugin
                     {
                         Interlocked.Increment(ref this.Statistics.MitigationTerminatedConnection);
                         Terraria.Netplay.Clients[i].Socket.Close();
-                        TShockAPI.TShock.Log.ConsoleInfo($"Connection from {tcpa.Address} ({tcpa.Port}, state {state} for {Math.Round(time - ct.ConnectTime, 1):G}s) disconnected due to connection state timeout.");
+                        TShockAPI.TShock.Log.ConsoleInfo(GetString($"Connection from {tcpa.Address} ({tcpa.Port}, state {state} for {Math.Round(time - ct.ConnectTime, 1):G}s) disconnected due to connection state timeout."));
                         break;
                     }
                 }

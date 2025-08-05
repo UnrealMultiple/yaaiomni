@@ -1,0 +1,189 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Misc\n"
+"POT-Creation-Date: 2025-08-05 17:06:24+0800\n"
+"PO-Revision-Date: 2025-08-05 20:15+0800\n"
+"Last-Translator: Cai <13110818005@qq.com>\n"
+"Language-Team: \n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.6\n"
+
+#: ../../Commands.cs:130
+#, csharp-format
+msgid "    File: {0}"
+msgstr "    文件: {0}"
+
+#: ../../Commands.cs:126
+#, csharp-format
+msgid "    Location: ({0})"
+msgstr "    位置: ({0})"
+
+#: ../../Commands.cs:121
+msgid "    No Assembly found"
+msgstr "    未找到程序集"
+
+#: ../../Commands.cs:135
+msgid "    No Plugin found"
+msgstr "    未找到插件"
+
+#: ../../Commands.cs:141
+#, csharp-format
+msgid "    Plugin: {0} v{1} by {2}"
+msgstr "    插件: {0} v{1} by {2}"
+
+#: ../../Commands.cs:117
+#, csharp-format
+msgid "    Signature: {0}"
+msgstr "    签名: {0}"
+
+#: ../../Commands.cs:218
+#, csharp-format
+msgid "[Omni] {0} ticks in {1:F2} seconds ({2:F2} tps)"
+msgstr "[Omni] {0}刻, 耗时{1:F2}秒 ({2:F2} TPS)"
+
+#: ../../Plugin.cs:101
+#, csharp-format
+msgid "{0} initialized."
+msgstr "{0}已初始化."
+
+#: ../../Commands.cs:202
+#, csharp-format
+msgid "{0} ticks / {1} seconds: {2:F2}"
+msgstr "{0}刻/{1}秒: {2:F2}"
+
+#: ../../Commands.cs:99
+#, csharp-format
+msgid "ChatCommands Found: {0}"
+msgstr "找到命令: {0}个"
+
+#: ../../Commands.cs:171
+msgid "Core Omni is null while tracking ticks per second."
+msgstr "在计算TPS时，Core Omni为null."
+
+#: ../../Plugin.cs:115
+#, csharp-format
+msgid "Failed to load config: {0}"
+msgstr "加载配置失败: {0}"
+
+#: ../../Plugin.cs:130 ../../Commands.cs:369
+#, csharp-format
+msgid "Failed to save config: {0}"
+msgstr "保存配置失败: {0}"
+
+#: ../../Commands.cs:22
+msgid "GC Triggered."
+msgstr "已触发垃圾回收(GC)."
+
+#: ../../Hooks.cs:13
+#, csharp-format
+msgid "Hook (Detour) failed for \"{0}\": source is null"
+msgstr "Hook (Detour) \"{0}\" 失败: 源方法为null"
+
+#: ../../Hooks.cs:26
+#, csharp-format
+msgid "Hook (Manipulate) failed for \"{0}\": source is null"
+msgstr "Hook (Manipulate) \"{0}\" 失败: 源方法为null"
+
+#: ../../Commands.cs:60
+#, csharp-format
+msgid "Index: {0} {1} {2} State: {3} Bytes: {4}"
+msgstr "索引: {0} {1} {2} 状态: {3} 字节数: {4}"
+
+#: ../../Commands.cs:45
+msgid "Invalid broadcast message."
+msgstr "广播消息无效."
+
+#: ../../Commands.cs:93
+msgid "Invalid command."
+msgstr "无效命令."
+
+#: ../../Commands.cs:72 ../../Commands.cs:78 ../../Commands.cs:151
+#: ../../Commands.cs:157 ../../Commands.cs:244 ../../Commands.cs:305
+msgid "Invalid player."
+msgstr "无效玩家."
+
+#: ../../Commands.cs:255 ../../Commands.cs:266
+msgid "Invalid PvP status."
+msgstr "无效PvP状态."
+
+#: ../../Commands.cs:284 ../../Commands.cs:316 ../../Commands.cs:327
+msgid "Invalid team."
+msgstr "无效队伍."
+
+#: ../../PermissionRestrict.cs:121 ../../PermissionRestrict.cs:132
+#: ../../PermissionRestrict.cs:141
+#, csharp-format
+msgid "Player {0} tried to summon boss {1} without permission {2}.{3}."
+msgstr "玩家{0}试图召唤Boss {1} (无权限{2}.{3})."
+
+#: ../../PermissionRestrict.cs:95
+#, csharp-format
+msgid "Player {0} tried to sync loadout without permission {1}."
+msgstr "玩家{0}试图切换装备栏 (无权限{1})."
+
+#: ../../PermissionRestrict.cs:24
+#, csharp-format
+msgid "Player {0} tried to toggle PvP to {1} without permission {2}."
+msgstr "玩家{0}试图将PvP切换为{1} (无权限{2})."
+
+#: ../../PermissionRestrict.cs:32
+#, csharp-format
+msgid "Player {0} tried to toggle PvP to {1} without permission {2}.{3}."
+msgstr "玩家{0}试图将PvP切换为{1} (无权限{2}.{3})."
+
+#: ../../PermissionRestrict.cs:55
+#, csharp-format
+msgid "Player {0} tried to toggle team to {1} without permission {2}."
+msgstr "玩家{0}试图将队伍切换为{1} (无权限{2})."
+
+#: ../../PermissionRestrict.cs:63
+#, csharp-format
+msgid "Player {0} tried to toggle team to {1} without permission {2}.{3}."
+msgstr "玩家{0}试图将队伍切换为{1} (无权限{2}.{3})."
+
+#: ../../Commands.cs:32
+msgid "SQLite Vacuum on TShock.DB triggered."
+msgstr "已对TShock.DB执行SQLite Vacuum操作."
+
+#: ../../Commands.cs:353
+msgid "Stack Trace:"
+msgstr "堆栈追踪:"
+
+#: ../../Commands.cs:194
+msgid "Started tracking ticks per second."
+msgstr "已开始追踪TPS."
+
+#: ../../Commands.cs:61 ../../Commands.cs:62
+#, csharp-format
+msgid "Status: {0}"
+msgstr "状态: {0}"
+
+#: ../../Commands.cs:36
+msgid "TShock.DB is not SQLite."
+msgstr "TShock.DB不是SQLite数据库."
+
+#: ../../Commands.cs:189
+#, csharp-format
+msgid "UPS Bench: {0} in {1} ({2:F2} per second)"
+msgstr "UPS基准测试: {0}次操作耗时{1} ({2:F2}次/秒)"
+
+#: ../../Commands.cs:237
+msgid "You don't have permission to set other players' PvP status."
+msgstr "你没有权限设置其他玩家的PvP状态."
+
+#: ../../Commands.cs:298
+msgid "You don't have permission to set other players' team."
+msgstr "你没有权限设置其他玩家的队伍."
+
+#: ../../Commands.cs:229
+#, csharp-format
+msgid "Your PvP status: {0}"
+msgstr "你的PvP状态: {0}"
+
+#: ../../Commands.cs:290
+#, csharp-format
+msgid "Your team: {0}"
+msgstr "你的队伍: {0}"

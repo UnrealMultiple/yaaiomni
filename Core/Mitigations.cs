@@ -311,7 +311,7 @@ public partial class Plugin
                             72 => 100,
                             73 => 10000,
                             74 => 1000000,
-                            _ => throw new SwitchExpressionException($"Unexpected coin {item.type}")
+                            _ => throw new SwitchExpressionException(GetString($"Unexpected coin {item.type}"))
                         };
                         var stack = item.stack;
                         item.GetPickedUpByMonsters_Money(item.whoAmI);
@@ -388,7 +388,7 @@ public partial class Plugin
         }
         catch
         {
-            Utils.ShowError($"Attempt hook {nameof(Config.Mitigation)}.{nameof(Config.MitigationSettings.DisabledDamageHandler)} failed, might be already fixed.");
+            Utils.ShowError(GetString($"Attempt hook {nameof(Config.Mitigation)}.{nameof(Config.MitigationSettings.DisabledDamageHandler)} failed, might be already fixed."));
         }
     }
 
@@ -408,7 +408,7 @@ public partial class Plugin
         }
         catch
         {
-            Utils.ShowError($"Attempt hook {nameof(Config.Mitigation)}.{nameof(Config.MitigationSettings.KeepRestAlive)} failed, might be already fixed.");
+            Utils.ShowError(GetString($"Attempt hook {nameof(Config.Mitigation)}.{nameof(Config.MitigationSettings.KeepRestAlive)} failed, might be already fixed."));
         }
     }
 
@@ -444,13 +444,13 @@ public partial class Plugin
                             root[jp.Name] = jp.Value;
                         }
 
-                        Console.WriteLine($"Set field \"{jp.Name}\" to \"{jp.Value}\".");
+                        Console.WriteLine(GetString($"Set field \"{jp.Name}\" to \"{jp.Value}\"."));
                     }
                     break;
                 }
                 default:
                 {
-                    throw new SwitchExpressionException($"Unexpected AcceptPartialUpdatedConfig {mitigation.AcceptPartialUpdatedConfig.Value}");
+                    throw new SwitchExpressionException(GetString($"Unexpected AcceptPartialUpdatedConfig {mitigation.AcceptPartialUpdatedConfig.Value}"));
                 }
             }
         }
@@ -468,7 +468,7 @@ public partial class Plugin
         if (doorStyle > TShockAPI.GetDataHandlers.MaxPlaceStyles[Terraria.ID.TileID.ClosedDoor])
         {
             // Can be used to spawn arbitrary items
-            TShockAPI.TShock.Log.ConsoleWarn($"Attempt to spawn item using glitched door style: {doorStyle}.");
+            TShockAPI.TShock.Log.ConsoleWarn(GetString($"Attempt to spawn item using glitched door style: {doorStyle}."));
 
             var tile = new Microsoft.Xna.Framework.Vector2(x * 16, y * 16);
             var nearby = Terraria.Main.player
@@ -480,7 +480,7 @@ public partial class Plugin
 
             if (nearby.Count > 0)
             {
-                TShockAPI.TShock.Log.ConsoleInfo($"Nearby players: {string.Join(Environment.NewLine, nearby.Select(p => $"{p.p.name} ({p.Item2 / 16:F1})"))}");
+                TShockAPI.TShock.Log.ConsoleInfo(GetString($"Nearby players: {string.Join(Environment.NewLine, nearby.Select(p => $"{p.p.name} ({p.Item2 / 16:F1})"))}"));
             }
 
             foreach (var t in Utils.CheckInvalidTiles(Terraria.Main.tile, x, y, 10))
@@ -523,7 +523,7 @@ public partial class Plugin
             var style = tileCache.frameY / 22;
             if (style > TShockAPI.GetDataHandlers.MaxPlaceStyles[Terraria.ID.TileID.Torches])
             {
-                TShockAPI.TShock.Log.ConsoleWarn($"Attempt to spawn item using glitched torch style: {style}");
+                TShockAPI.TShock.Log.ConsoleWarn(GetString($"Attempt to spawn item using glitched torch style: {style}"));
 
                 var tile = new Microsoft.Xna.Framework.Vector2(x * 16, y * 16);
                 var nearby = Terraria.Main.player
@@ -535,7 +535,7 @@ public partial class Plugin
 
                 if (nearby.Count > 0)
                 {
-                    TShockAPI.TShock.Log.ConsoleInfo($"Nearby players: {string.Join(Environment.NewLine, nearby.Select(p => $"{p.p.name} ({p.Item2 / 16:F1})"))}");
+                    TShockAPI.TShock.Log.ConsoleInfo(GetString($"Nearby players: {string.Join(Environment.NewLine, nearby.Select(p => $"{p.p.name} ({p.Item2 / 16:F1})"))}"));
                 }
                 tileCache.ClearEverything();
 
@@ -668,7 +668,7 @@ public partial class Plugin
     {
         if (Terraria.Main.ActiveWorldFileData is null)
         {
-            TShockAPI.TShock.Log.Error("Main.ActiveWorldFileData is null. This probably indicates your world is corrupted.");
+            TShockAPI.TShock.Log.Error(GetString("Main.ActiveWorldFileData is null. This probably indicates your world is corrupted."));
             return null;
         }
         return Terraria.Main.ActiveWorldFileData.Path;

@@ -61,7 +61,7 @@ public partial class Plugin
             var newName = br.ReadString();
             if (newName != currentName)
             {
-                TShockAPI.TShock.Log.ConsoleInfo($"Unusual name change detected: {Terraria.Netplay.Clients[whoAmI].Socket.GetRemoteAddress()} claimed the name \"{newName}\" but previously known as {currentName}");
+                TShockAPI.TShock.Log.ConsoleInfo(GetString($"Unusual name change detected: {Terraria.Netplay.Clients[whoAmI].Socket.GetRemoteAddress()} claimed the name \"{newName}\" but previously known as {currentName}"));
                 return true;
             }
             return false;
@@ -79,7 +79,7 @@ public partial class Plugin
             ModdedEarlyChatSpam(whoAmI, (PacketTypes) args.PacketId, this.AllowedPackets))
         {
             this.Statistics.ModdedEarlyChatSpam++;
-            TShockAPI.TShock.Log.ConsoleInfo($"Unusual packet {args.PacketId} detected at state {Terraria.Netplay.Clients[whoAmI].State} and disconnected. ({Terraria.Netplay.Clients[whoAmI].Socket.GetRemoteAddress()})");
+            TShockAPI.TShock.Log.ConsoleInfo(GetString($"Unusual packet {args.PacketId} detected at state {Terraria.Netplay.Clients[whoAmI].State} and disconnected. ({Terraria.Netplay.Clients[whoAmI].Socket.GetRemoteAddress()})"));
             args.CancelPacket();
             Terraria.Netplay.Clients[whoAmI].PendingTermination = true;
             Terraria.Netplay.Clients[whoAmI].PendingTerminationApproved = true;

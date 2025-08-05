@@ -273,7 +273,7 @@ internal static class Socket
                         var claimedSize = BitConverter.ToInt16(buffer, 0);
                         if (claimedSize != size)
                         {
-                            TShockAPI.TShock.Log.ConsoleWarn($"[DbgPkt] Outbound message size mismatch: {size} != {claimedSize} (to {this._remoteAddress})");
+                            TShockAPI.TShock.Log.ConsoleWarn(GetString($"[DbgPkt] Outbound message size mismatch: {size} != {claimedSize} (to {this._remoteAddress})"));
                         }
                         else
                         {

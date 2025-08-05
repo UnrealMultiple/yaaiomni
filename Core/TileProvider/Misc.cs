@@ -35,8 +35,8 @@ partial class Plugin
                     }
                     catch
                     {
-                        TShockAPI.TShock.Log.ConsoleWarn($"Attempt to extend the tile provider because we need {Terraria.Main.maxTilesX}x{Terraria.Main.maxTilesY} but we only have {Terraria.Main.tile.Width}x{Terraria.Main.tile.Height}.");
-                        TShockAPI.TShock.Log.ConsoleWarn("Failed to extend the tile provider. The server will probably crash due to lack of array space.");
+                        TShockAPI.TShock.Log.ConsoleWarn(GetString($"Attempt to extend the tile provider because we need {Terraria.Main.maxTilesX}x{Terraria.Main.maxTilesY} but we only have {Terraria.Main.tile.Width}x{Terraria.Main.tile.Height}."));
+                        TShockAPI.TShock.Log.ConsoleWarn(GetString("Failed to extend the tile provider. The server will probably crash due to lack of array space."));
                         // failed, keep original
                     }
                 }
@@ -56,31 +56,31 @@ partial class Plugin
             case "default":
                 Terraria.Main.tile = Utils.CloneTileCollection(Terraria.Main.tile,
                     new ModFramework.DefaultCollection<Terraria.ITile>(Terraria.Main.maxTilesX, Terraria.Main.maxTilesY));
-                args.Player.SendSuccessMessage("Tile provider set to default.");
+                args.Player.SendSuccessMessage(GetString("Tile provider set to default."));
                 break;
             case "heaptile":
                 Terraria.Main.tile = Utils.CloneTileCollection(Terraria.Main.tile,
                     new TerrariaApi.Server.TileProvider());
-                args.Player.SendSuccessMessage("Tile provider set to heaptile.");
+                args.Player.SendSuccessMessage(GetString("Tile provider set to heaptile."));
                 break;
             case "constilation":
                 Terraria.Main.tile = Utils.CloneTileCollection(Terraria.Main.tile,
                     new TerrariaApi.Server.ConstileationProvider());
-                args.Player.SendSuccessMessage("Tile provider set to constilation.");
+                args.Player.SendSuccessMessage(GetString("Tile provider set to constilation."));
                 break;
             case "checkedtyped":
                 Terraria.Main.tile = Utils.CloneTileCollection(Terraria.Main.tile,
                     new CheckedTypedCollection());
-                args.Player.SendSuccessMessage("Tile provider set to checkedtyped.");
+                args.Player.SendSuccessMessage(GetString("Tile provider set to checkedtyped."));
                 break;
             case "checkedgeneric":
                 Terraria.Main.tile = Utils.CloneTileCollection(Terraria.Main.tile,
                     new CheckedGenericCollection());
-                args.Player.SendSuccessMessage("Tile provider set to checkedgeneric.");
+                args.Player.SendSuccessMessage(GetString("Tile provider set to checkedgeneric."));
                 break;
             default:
-                args.Player.SendErrorMessage("Usage: /tileprovider <default|heaptile|constilation|checkedtyped|checkedgeneric>");
-                args.Player.SendInfoMessage("constilation and heaptile require less memory, but are slower.");
+                args.Player.SendErrorMessage(GetString("Usage: /tileprovider <default|heaptile|constilation|checkedtyped|checkedgeneric>"));
+                args.Player.SendInfoMessage(GetString("constilation and heaptile require less memory, but are slower."));
                 return;
         }
         GC.Collect();

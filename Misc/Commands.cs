@@ -19,7 +19,7 @@ public partial class Plugin
         {
             GC.Collect(3, GCCollectionMode.Optimized, false);
         }
-        args.Player.SendSuccessMessage("GC Triggered.");
+        args.Player.SendSuccessMessage(GetString("GC Triggered."));
     }
 
     [Command("Admin.SqliteVacuum", "_sv", Permission = "chireiden.omni.admin.sv")]
@@ -29,11 +29,11 @@ public partial class Plugin
         if (TShockAPI.DB.DbExt.GetSqlType(db) == TShockAPI.DB.SqlType.Sqlite)
         {
             TShockAPI.DB.DbExt.Query(db, "VACUUM");
-            args.Player.SendSuccessMessage("SQLite Vacuum on TShock.DB triggered.");
+            args.Player.SendSuccessMessage(GetString("SQLite Vacuum on TShock.DB triggered."));
         }
         else
         {
-            args.Player.SendErrorMessage("TShock.DB is not SQLite.");
+            args.Player.SendErrorMessage(GetString("TShock.DB is not SQLite."));
         }
     }
 
@@ -42,7 +42,7 @@ public partial class Plugin
     {
         if (args.Parameters.Count == 0)
         {
-            args.Player.SendErrorMessage("Invalid broadcast message.");
+            args.Player.SendErrorMessage(GetString("Invalid broadcast message."));
             return;
         }
 
@@ -57,9 +57,9 @@ public partial class Plugin
         {
             if (client.IsConnected())
             {
-                args.Player.SendInfoMessage($"Index: {client.Id} {client.Socket.GetRemoteAddress()} {client.Name} State: {client.State} Bytes: {Terraria.NetMessage.buffer[client.Id].totalData}");
-                args.Player.SendInfoMessage($"Status: {client.StatusText}");
-                args.Player.SendInfoMessage($"Status: {client.StatusText2}");
+                args.Player.SendInfoMessage(GetString($"Index: {client.Id} {client.Socket.GetRemoteAddress()} {client.Name} State: {client.State} Bytes: {Terraria.NetMessage.buffer[client.Id].totalData}"));
+                args.Player.SendInfoMessage(GetString($"Status: {client.StatusText}"));
+                args.Player.SendInfoMessage(GetString($"Status: {client.StatusText2}"));
             }
         }
     }
@@ -69,13 +69,13 @@ public partial class Plugin
     {
         if (args.Parameters.Count == 0)
         {
-            args.Player.SendErrorMessage("Invalid player.");
+            args.Player.SendErrorMessage(GetString("Invalid player."));
             return;
         }
 
         if (!byte.TryParse(args.Parameters[0], out var index))
         {
-            args.Player.SendErrorMessage("Invalid player.");
+            args.Player.SendErrorMessage(GetString("Invalid player."));
             return;
         }
 
@@ -90,13 +90,13 @@ public partial class Plugin
     {
         if (args.Parameters.Count == 0)
         {
-            args.Player.SendErrorMessage("Invalid command.");
+            args.Player.SendErrorMessage(GetString("Invalid command."));
             return;
         }
 
         var c = TShockAPI.Commands.ChatCommands.Where(command => command.HasAlias(args.Parameters[0])).ToList();
 
-        args.Player.SendInfoMessage($"ChatCommands Found: {c.Count}");
+        args.Player.SendInfoMessage(GetString($"ChatCommands Found: {c.Count}"));
 
         var dict = ((Dictionary<string, Assembly>?) typeof(ServerApi).GetField("loadedAssemblies", _bfany)?.GetValue(null))?
             .ToDictionary(kvp => kvp.Value, kvp => kvp.Key);
@@ -114,31 +114,31 @@ public partial class Plugin
             }
             var method = command.CommandDelegate.Method;
             var sig = $"{method.DeclaringType?.FullName}.{method.Name}";
-            args.Player.SendInfoMessage($"    Signature: {sig}");
+            args.Player.SendInfoMessage(GetString($"    Signature: {sig}"));
             var asm = method.DeclaringType?.Assembly;
             if (asm is null)
             {
-                args.Player.SendInfoMessage($"    No Assembly found");
+                args.Player.SendInfoMessage(GetString($"    No Assembly found"));
                 continue;
             }
             if (!string.IsNullOrWhiteSpace(asm.Location))
             {
-                args.Player.SendInfoMessage($"    Location: ({asm.Location})");
+                args.Player.SendInfoMessage(GetString($"    Location: ({asm.Location})"));
             }
             if (dict?.TryGetValue(asm, out var fileNameWithoutExtension) == true)
             {
-                args.Player.SendInfoMessage($"    File: {fileNameWithoutExtension}");
+                args.Player.SendInfoMessage(GetString($"    File: {fileNameWithoutExtension}"));
             }
             var plugins = ServerApi.Plugins.Where(p => p.Plugin.GetType().Assembly == asm).ToList();
             if (plugins.Count == 0)
             {
-                args.Player.SendInfoMessage($"    No Plugin found");
+                args.Player.SendInfoMessage(GetString($"    No Plugin found"));
                 continue;
             }
             foreach (var plugin in plugins)
             {
                 var p = plugin.Plugin;
-                args.Player.SendInfoMessage($"    Plugin: {p.Name} v{p.Version} by {p.Author}");
+                args.Player.SendInfoMessage(GetString($"    Plugin: {p.Name} v{p.Version} by {p.Author}"));
             }
         }
     }
@@ -148,13 +148,13 @@ public partial class Plugin
     {
         if (args.Parameters.Count == 0)
         {
-            args.Player.SendErrorMessage("Invalid player.");
+            args.Player.SendErrorMessage(GetString("Invalid player."));
             return;
         }
 
         if (!byte.TryParse(args.Parameters[0], out var index))
         {
-            args.Player.SendErrorMessage("Invalid player.");
+            args.Player.SendErrorMessage(GetString("Invalid player."));
             return;
         }
 
@@ -168,7 +168,7 @@ public partial class Plugin
         var core = ServerApi.Plugins.Get<Omni.Plugin>();
         if (core is null)
         {
-            args.Player.SendErrorMessage("Core Omni is null while tracking ticks per second.");
+            args.Player.SendErrorMessage(GetString("Core Omni is null while tracking ticks per second."));
             return;
         }
         if (args.Parameters.Count > 0 && args.Parameters[0] == "bench")
@@ -186,12 +186,12 @@ public partial class Plugin
                 c += 1;
             }
             var dt = DateTime.Now - t;
-            args.Player.SendInfoMessage($"UPS Bench: {c} in {dt} ({c / dt.TotalSeconds:F2} per second)");
+            args.Player.SendInfoMessage(GetString($"UPS Bench: {c} in {dt} ({c / dt.TotalSeconds:F2} per second)"));
         }
         else if (this._tickCheck.Tick == -1)
         {
             this._tickCheck = (core.UpdateCounter, DateTime.Now);
-            args.Player.SendInfoMessage("Started tracking ticks per second.");
+            args.Player.SendInfoMessage(GetString("Started tracking ticks per second."));
         }
         else
         {
@@ -199,7 +199,7 @@ public partial class Plugin
             this._tickCheck = (-1, DateTime.MinValue);
             var diff = core.UpdateCounter - Tick;
             var time = DateTime.Now - Time;
-            args.Player.SendInfoMessage($"{diff} ticks / {time} seconds: {diff / time.TotalSeconds:F2}");
+            args.Player.SendInfoMessage(GetString($"{diff} ticks / {time} seconds: {diff / time.TotalSeconds:F2}"));
         }
     }
 
@@ -215,7 +215,7 @@ public partial class Plugin
                 var diff = ServerApi.Plugins.Get<Omni.Plugin>()!.UpdateCounter - Tick;
                 var time = DateTime.Now - Time;
                 TShockAPI.TShock.Log.ConsoleInfo(
-                    $"[Omni] {diff} ticks in {time.TotalSeconds:F2} seconds ({diff / time.TotalSeconds:F2} tps)");
+                    GetString($"[Omni] {diff} ticks in {time.TotalSeconds:F2} seconds ({diff / time.TotalSeconds:F2} tps)"));
             }
         }
     }
@@ -226,7 +226,7 @@ public partial class Plugin
     {
         if (args.Parameters.Count == 0)
         {
-            args.Player.SendInfoMessage($"Your PvP status: {args.Player.TPlayer.hostile}");
+            args.Player.SendInfoMessage(GetString($"Your PvP status: {args.Player.TPlayer.hostile}"));
             return;
         }
 
@@ -234,14 +234,14 @@ public partial class Plugin
         {
             if (!args.Player.HasPermission(DefinedConsts.PermissionsList.Admin.PvPStatus))
             {
-                args.Player.SendErrorMessage("You don't have permission to set other players' PvP status.");
+                args.Player.SendErrorMessage(GetString("You don't have permission to set other players' PvP status."));
                 return;
             }
 
             var player = TSPlayer.FindByNameOrID(args.Parameters[0]);
             if (player.Count == 0)
             {
-                args.Player.SendErrorMessage("Invalid player.");
+                args.Player.SendErrorMessage(GetString("Invalid player."));
                 return;
             }
             else if (player.Count > 1)
@@ -252,7 +252,7 @@ public partial class Plugin
 
             if (!bool.TryParse(args.Parameters[1], out var pvp))
             {
-                args.Player.SendErrorMessage("Invalid PvP status.");
+                args.Player.SendErrorMessage(GetString("Invalid PvP status."));
                 return;
             }
 
@@ -263,7 +263,7 @@ public partial class Plugin
         {
             if (!bool.TryParse(args.Parameters[0], out var pvp))
             {
-                args.Player.SendErrorMessage("Invalid PvP status.");
+                args.Player.SendErrorMessage(GetString("Invalid PvP status."));
                 return;
             }
 
@@ -281,13 +281,13 @@ public partial class Plugin
             var team = args.Player.TPlayer.team;
             if (team > Terraria.Main.teamColor.Length)
             {
-                args.Player.SendErrorMessage("Invalid team.");
+                args.Player.SendErrorMessage(GetString("Invalid team."));
                 return;
             }
 
             var color = Terraria.Main.teamColor[team];
             var cc = $"{color.R:X2}{color.G:X2}{color.B:X2}";
-            args.Player.SendInfoMessage($"Your team: {team.Color(cc)}");
+            args.Player.SendInfoMessage(GetString($"Your team: {team.Color(cc)}"));
             return;
         }
 
@@ -295,14 +295,14 @@ public partial class Plugin
         {
             if (!args.Player.HasPermission(DefinedConsts.PermissionsList.Admin.TeamStatus))
             {
-                args.Player.SendErrorMessage("You don't have permission to set other players' team.");
+                args.Player.SendErrorMessage(GetString("You don't have permission to set other players' team."));
                 return;
             }
 
             var player = TSPlayer.FindByNameOrID(args.Parameters[0]);
             if (player.Count == 0)
             {
-                args.Player.SendErrorMessage("Invalid player.");
+                args.Player.SendErrorMessage(GetString("Invalid player."));
                 return;
             }
             else if (player.Count > 1)
@@ -313,7 +313,7 @@ public partial class Plugin
 
             if (!byte.TryParse(args.Parameters[1], out var team))
             {
-                args.Player.SendErrorMessage("Invalid team.");
+                args.Player.SendErrorMessage(GetString("Invalid team."));
                 return;
             }
 
@@ -324,7 +324,7 @@ public partial class Plugin
         {
             if (!byte.TryParse(args.Parameters[0], out var team))
             {
-                args.Player.SendErrorMessage("Invalid team.");
+                args.Player.SendErrorMessage(GetString("Invalid team."));
                 return;
             }
 
@@ -350,7 +350,7 @@ public partial class Plugin
     private void Command_Caller(CommandArgs args)
     {
         var st = new System.Diagnostics.StackTrace();
-        args.Player.SendInfoMessage("Stack Trace:");
+        args.Player.SendInfoMessage(GetString("Stack Trace:"));
         foreach (var frame in st.GetFrames())
         {
             args.Player.SendInfoMessage(frame.ToString());
@@ -366,7 +366,7 @@ public partial class Plugin
         }
         catch (Exception ex)
         {
-            args.Player.SendErrorMessage($"Failed to save config: {ex.Message}");
+            args.Player.SendErrorMessage(GetString($"Failed to save config: {ex.Message}"));
         }
     }
 }

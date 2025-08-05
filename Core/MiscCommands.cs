@@ -12,18 +12,18 @@ public partial class Plugin
     {
         if (args.Parameters.Count == 0)
         {
-            args.Player.SendInfoMessage($"Max players: {Terraria.Main.maxNetPlayers}");
+            args.Player.SendInfoMessage(GetString($"Max players: {Terraria.Main.maxNetPlayers}"));
             return;
         }
 
         if (byte.TryParse(args.Parameters[0], out var maxPlayers))
         {
             Terraria.Main.maxNetPlayers = maxPlayers;
-            args.Player.SendSuccessMessage($"Max players set to {maxPlayers}.");
+            args.Player.SendSuccessMessage(GetString($"Max players set to {maxPlayers}."));
         }
         else
         {
-            args.Player.SendErrorMessage("Invalid max players.");
+            args.Player.SendErrorMessage(GetString("Invalid max players."));
         }
     }
 
@@ -32,7 +32,7 @@ public partial class Plugin
     {
         if (args.Parameters.Count <= 1)
         {
-            args.Player.SendErrorMessage("Invalid syntax. Who and what to run?");
+            args.Player.SendErrorMessage(GetString("Invalid syntax. Who and what to run?"));
             return;
         }
 
@@ -41,7 +41,7 @@ public partial class Plugin
 
         if (parm.Length != 2)
         {
-            args.Player.SendErrorMessage("Invalid syntax. Perhaps you can quote it?");
+            args.Player.SendErrorMessage(GetString("Invalid syntax. Perhaps you can quote it?"));
             return;
         }
 
@@ -58,7 +58,7 @@ public partial class Plugin
         {
             if (player.Count == 0)
             {
-                args.Player.SendErrorMessage("Invalid player.");
+                args.Player.SendErrorMessage(GetString("Invalid player."));
                 return;
             }
             if (player.Count > 1)
@@ -134,7 +134,7 @@ public partial class Plugin
             }
             else
             {
-                args.Player.SendErrorMessage("You do not have permission to reset all players characters.");
+                args.Player.SendErrorMessage(GetString("You do not have permission to reset all players characters."));
             }
         }
         else if (args.Parameters[0].StartsWith("tsp:")
@@ -148,13 +148,13 @@ public partial class Plugin
             }
             else
             {
-                args.Player.SendErrorMessage("You do not have permission to reset other players characters.");
+                args.Player.SendErrorMessage(GetString("You do not have permission to reset other players characters."));
             }
         }
 
         if (account.Count == 0)
         {
-            args.Player.SendErrorMessage("Invalid player.");
+            args.Player.SendErrorMessage(GetString("Invalid player."));
             return;
         }
 
@@ -162,7 +162,7 @@ public partial class Plugin
         {
             if (account.Count > 20)
             {
-                args.Player.SendErrorMessage("More than 20 players will be reset. Use -f to force.");
+                args.Player.SendErrorMessage(GetString("More than 20 players will be reset. Use -f to force."));
                 return;
             }
             if (account.Count > 1)
@@ -170,14 +170,14 @@ public partial class Plugin
                 var names = string.Join(", ", account.Select(a =>
                 {
                     var acc = TShockAPI.TShock.UserAccounts.GetUserAccountByID(a);
-                    return $"{acc.Name} (Index: {acc.ID})";
+                    return GetString($"{acc.Name} (Index: {acc.ID})");
                 }).ToArray());
-                args.Player.SendErrorMessage($"{names} will be reset. Use -f to force.");
+                args.Player.SendErrorMessage(GetString($"{names} will be reset. Use -f to force."));
                 return;
             }
             if (args.Player.Account?.ID != null && account.Contains(args.Player.Account.ID))
             {
-                args.Player.SendErrorMessage("Your character data will be reset. Use -f to force.");
+                args.Player.SendErrorMessage(GetString("Your character data will be reset. Use -f to force."));
                 return;
             }
         }
@@ -241,7 +241,7 @@ public partial class Plugin
 
         if (accounts.Count == 0)
         {
-            args.Player.SendErrorMessage("No accounts found.");
+            args.Player.SendErrorMessage(GetString("No accounts found."));
             return;
         }
 
@@ -257,7 +257,7 @@ public partial class Plugin
             {
                 if (account == null)
                 {
-                    args.Player.SendErrorMessage("Account not found.");
+                    args.Player.SendErrorMessage(GetString("Account not found."));
                     continue;
                 }
                 var p = new DummyTSPlayer();
@@ -282,12 +282,12 @@ public partial class Plugin
                     _path = Path.Combine(dir, $"{account.Name}.plr")
                 };
                 Terraria.Player.InternalSavePlayerFile(file);
-                args.Player.SendSuccessMessage($"Exported {account.Name} to {dir}.");
+                args.Player.SendSuccessMessage(GetString($"Exported {account.Name} to {dir}."));
             }
             catch (Exception e)
             {
-                TShockAPI.TShock.Log.ConsoleError($"Failed to export {account.Name}: {e.Message}");
-                args.Player.SendErrorMessage($"Failed to export {account.Name}.");
+                TShockAPI.TShock.Log.ConsoleError(GetString($"Failed to export {account.Name}: {e.Message}"));
+                args.Player.SendErrorMessage(GetString($"Failed to export {account.Name}."));
             }
         }
     }
@@ -313,7 +313,7 @@ public partial class Plugin
         }
         catch (Exception ex)
         {
-            args.Player.SendErrorMessage($"Failed to save config: {ex.Message}");
+            args.Player.SendErrorMessage(GetString($"Failed to save config: {ex.Message}"));
         }
     }
 
@@ -322,19 +322,19 @@ public partial class Plugin
     {
         if (args.Parameters.Count == 0)
         {
-            args.Player.SendErrorMessage("No command given.");
+            args.Player.SendErrorMessage(GetString("No command given."));
             return;
         }
 
         if (args.Parameters[0] == "-t" && args.Parameters.Count > 1)
         {
             Task.Run(() => TShockAPI.Commands.HandleCommand(args.Player, args.Parameters[1]));
-            args.Player.SendSuccessMessage($"Background task ({args.Player.Name} @ {args.Parameters[1]}) started.");
+            args.Player.SendSuccessMessage(GetString($"Background task ({args.Player.Name} @ {args.Parameters[1]}) started."));
             return;
         }
 
         System.Threading.ThreadPool.QueueUserWorkItem(_ => TShockAPI.Commands.HandleCommand(args.Player, args.Parameters[0]));
-        args.Player.SendSuccessMessage($"Background task ({args.Player.Name} @ {args.Parameters[0]}) queued.");
+        args.Player.SendSuccessMessage(GetString($"Background task ({args.Player.Name} @ {args.Parameters[0]}) queued."));
     }
 
     [Command("Admin.RunLocked", "_locked", Permission = "chireiden.omni.admin.locked")]
@@ -342,7 +342,7 @@ public partial class Plugin
     {
         if (args.Parameters.Count != 1)
         {
-            args.Player.SendErrorMessage("Invalid command. Perhaps you can quote it?");
+            args.Player.SendErrorMessage(GetString("Invalid command. Perhaps you can quote it?"));
             return;
         }
 

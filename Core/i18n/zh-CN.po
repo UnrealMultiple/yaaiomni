@@ -1,0 +1,556 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2025-08-05 20:20:59+0800\n"
+"PO-Revision-Date: 2025-08-05 20:28+0800\n"
+"Last-Translator: Cai <13110818005@qq.com>\n"
+"Language-Team: \n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.6\n"
+"X-Poedit-Basepath: .\n"
+
+#: ../../Utils.cs:550
+#, csharp-format
+msgid "  --> Current: {0} (v{1})"
+msgstr "  --> 当前: {0} (v{1})"
+
+#: ../../Utils.cs:546
+#, csharp-format
+msgid "  --> Loaded:  {0} (v{1})"
+msgstr "  --> 已加载:  {0} (v{1})"
+
+#: ../../Plugin.cs:228
+#, csharp-format
+msgid "  {0:G} connections per IP per {1:G} seconds"
+msgstr "  每个IP每{1:G}秒允许连接{0:G}次"
+
+#: ../../Plugin.cs:219
+#, csharp-format
+msgid "  {0:G} messages per {1:G} seconds"
+msgstr "  每{1:G}秒允许发送{0:G}条聊天"
+
+#: ../../SocketProvider.cs:276
+#, csharp-format
+msgid "[DbgPkt] Outbound message size mismatch: {0} != {1} (to {2})"
+msgstr "[数据包调试] 出站消息大小不匹配: 实际{0}≠声明{1} (目标地址: {2})"
+
+#: ../../MiscCommands.cs:173
+#, csharp-format
+msgid "{0} (Index: {1})"
+msgstr "{0} (索引: {1})"
+
+#: ../../Utils.cs:553
+#, csharp-format
+msgid "{0} already loaded."
+msgstr "{0}被重复加载."
+
+#: ../../Plugin.cs:320
+#, csharp-format
+msgid "{0} loaded."
+msgstr "{0}已重载."
+
+#: ../../MiscCommands.cs:175
+#, csharp-format
+msgid "{0} will be reset. Use -f to force."
+msgstr "{0}将会被重置, 使用-f强制重置."
+
+#: ../../MiscCommands.cs:260
+msgid "Account not found."
+msgstr "账号不存在."
+
+#: ../../WorldGen.cs:61
+msgid "Already inspecting tile frame."
+msgstr "已在检查Tile Frame."
+
+#: ../../Plugin.cs:288
+msgid "An identifier for IP address with subnet mask (e.g. ipa:1.2.3.4/24)"
+msgstr "可以匹配带子网掩码的IP地址 (例如: ipa:1.2.3.4/24)"
+
+#: ../../Plugin.cs:284
+msgid ""
+"An identifier for Regex matching the character name (e.g. namea:^.{8,}$)"
+msgstr "可以用正则表达式匹配角色名称 (例如: namea:^.{8,}$)"
+
+#: ../../Mitigations.cs:391 ../../Mitigations.cs:411
+#, csharp-format
+msgid "Attempt hook {0}.{1} failed, might be already fixed."
+msgstr "尝试Hook\"{0}.{1}\"失败, 可能已被修复."
+
+#: ../../TileProvider/Misc.cs:38
+#, csharp-format
+msgid ""
+"Attempt to extend the tile provider because we need {0}x{1} but we only have "
+"{2}x{3}."
+msgstr "尝试扩展地图读写接口，当前需要{0}x{1}但仅有{2}x{3}"
+
+#: ../../Mitigations.cs:471
+#, csharp-format
+msgid "Attempt to spawn item using glitched door style: {0}."
+msgstr "尝试使用异常门样式生成物品: {0}"
+
+#: ../../Mitigations.cs:526
+#, csharp-format
+msgid "Attempt to spawn item using glitched torch style: {0}"
+msgstr "尝试使用异常火把样式生成物品: {0}"
+
+#: ../../MiscCommands.cs:337
+#, csharp-format
+msgid "Background task ({0} @ {1}) queued."
+msgstr "后台任务({0} @ {1})已加入队列."
+
+#: ../../MiscCommands.cs:332
+#, csharp-format
+msgid "Background task ({0} @ {1}) started."
+msgstr "后台任务({0} @ {1})已启动."
+
+#: ../../MoreBan.cs:28
+#, csharp-format
+msgid "Ban pattern {0} is invalid: {1}"
+msgstr "封禁参数\"{0}\"无效: {1}"
+
+#: ../../MoreBan.cs:39
+#, csharp-format
+msgid "Ban pattern {0} is invalid."
+msgstr "封禁参数\"{0}\"无效."
+
+#: ../../Plugin.cs:216
+msgid "ChatSpam limit applied:"
+msgstr "聊天频率限制已启用:"
+
+#: ../../Timeout.cs:111
+#, csharp-format
+msgid "Command {0} ({1}) has been removed."
+msgstr "命令\"{0} ({1})\"已被移除."
+
+#: ../../Timeout.cs:83
+#, csharp-format
+msgid "Command {0} will be executed in the future (t: {1}, id: {2})."
+msgstr "命令\"{0}\"将按间隔重复执行 (间隔: {1}, ID: {2})"
+
+#: ../../Timeout.cs:59
+#, csharp-format
+msgid "Command {0} will be executed once in the future (t: {1}, id: {2})."
+msgstr "命令\"{0}\"将在稍后执行一次 (间隔: {1}, ID: {2})"
+
+#: ../../Timeout.cs:129
+#, csharp-format
+msgid "Command: {0}, Timeout: {1}, Repeat: {2}, Id: {3}"
+msgstr "命令: {0}, 延迟: {1}, 重复: {2}, ID: {3}"
+
+#: ../../Timeout.cs:126
+msgid "Commands:"
+msgstr "待执行命令列表:"
+
+#: ../../PacketSpam.cs:113
+#, csharp-format
+msgid ""
+"Connection from {0} ({1}, state {2} for {3:G}s) disconnected due to "
+"connection state timeout."
+msgstr "来自{0}({1})的连接(状态{2}持续{3:G}秒)因连接状态超时已被断开."
+
+#: ../../PacketSpam.cs:76
+#, csharp-format
+msgid "Connection from {0} ({1}) rejected due to connection limit."
+msgstr "来自{0}({1})的连接因连接数限制已被拒绝."
+
+#: ../../Plugin.cs:225
+msgid "Connection limit applied:"
+msgstr "连接数限制已启用:"
+
+#: ../../PacketSpam.cs:101
+msgid "Connection time not found"
+msgstr "未找到连接时间记录"
+
+#: ../../Plugin.cs:58
+#, csharp-format
+msgid "Console encoding set to {0}"
+msgstr "控制台编码已设置为{0}"
+
+#: ../../Plugin.cs:53
+#, csharp-format
+msgid "Console encoding set to default ({0})"
+msgstr "控制台编码已设置为默认值 ({0})"
+
+#: ../../TileProvider/Misc.cs:83
+msgid "constilation and heaptile require less memory, but are slower."
+msgstr "constilation和heaptile模式内存占用更低, 但性能较慢."
+
+#: ../../Utils.cs:413
+#, csharp-format
+msgid "Could not find type {0} in TShock"
+msgstr "无法在TShock中找到类型{0}"
+
+#: ../../LangCommand.cs:99
+#, csharp-format
+msgid "Current culture set to {0}."
+msgstr "当前区域设置已设置为{0}"
+
+#: ../../LangCommand.cs:25
+#, csharp-format
+msgid "Current Game Lang: {0}"
+msgstr "当前游戏语言: {0}"
+
+#: ../../LangCommand.cs:24
+#, csharp-format
+msgid "Current TShock Lang: {0}"
+msgstr "当前TShock语言：{0}"
+
+#: ../../WorldGen.cs:137
+#, csharp-format
+msgid "Detour_InspectTileFrame Trace: {0}"
+msgstr "Detour_InspectTileFrame 堆栈跟踪: {0}"
+
+#: ../../WorldGen.cs:125
+#, csharp-format
+msgid "Detour_InspectTileFrame: {0} frames at {1}, {2}"
+msgstr "Detour_InspectTileFrame: 在{1}, {2}处检测到{0}次Tile Frame循环"
+
+#: ../../WorldGen.cs:134
+#, csharp-format
+msgid "Detour_InspectTileFrame: {0} frames with source of {1}."
+msgstr "Detour_InspectTileFrame: 检测到{0}次Tile Frame循环, 来源：{1}"
+
+#: ../../WorldGen.cs:113
+#, csharp-format
+msgid "Detour_InspectTileFrame: Clearing tile {0},{1} (content: {2})"
+msgstr "Detour_InspectTileFrame: 正在清除图格 {0},{1} (内容: {2})"
+
+#: ../../WorldGen.cs:102
+#, csharp-format
+msgid "Detour_InspectTileFrame: Dump crashing map to dumpmap.wld.bak ({0})"
+msgstr "Detour_InspectTileFrame: 正在将崩溃地图转储至 dumpmap.wld.bak ({0})"
+
+#: ../../Utils.cs:543
+#, csharp-format
+msgid "Duplicate {0} loaded:"
+msgstr "插件{0}重复加载:"
+
+#: ../../LangCommand.cs:88
+#, csharp-format
+msgid "Existing culture: \"{0}\" ({1})."
+msgstr "当前区域设置: \"{0}\" ({1})."
+
+#: ../../MiscCommands.cs:285
+#, csharp-format
+msgid "Exported {0} to {1}."
+msgstr "已导出{0}到{1}."
+
+#: ../../Vanilla.cs:31
+#, csharp-format
+msgid "Failed to add permissions to group {0}."
+msgstr "无法为组{0}添加权限."
+
+#: ../../Enhancements.cs:193
+#, csharp-format
+msgid "Failed to enable IPv6 dual stack on {0}: {1}"
+msgstr "无法在{0}启用IPv6双栈模式：{1}"
+
+#: ../../Enhancements.cs:189
+#, csharp-format
+msgid "Failed to enable IPv6 dual stack on {0}: not supported."
+msgstr "无法在{0}启用IPv6双栈模式：不支持该功能."
+
+#: ../../MiscCommands.cs:289
+#, csharp-format
+msgid "Failed to export {0}: {1}"
+msgstr "导出{0}失败：{1}"
+
+#: ../../MiscCommands.cs:290
+#, csharp-format
+msgid "Failed to export {0}."
+msgstr "导出{0}失败."
+
+#: ../../TileProvider/Misc.cs:39
+msgid ""
+"Failed to extend the tile provider. The server will probably crash due to "
+"lack of array space."
+msgstr "图格提供器扩展失败, 服务器可能将会因数组空间不足而崩溃."
+
+#: ../../Vanilla.cs:40
+#, csharp-format
+msgid "Failed to find group {0}."
+msgstr "找不到组{0}"
+
+#: ../../LangCommand.cs:103
+#, csharp-format
+msgid "Failed to find nearest language for \"{0}\" ({1})."
+msgstr "未能找到与\"{0}\"({1})最接近的语言。"
+
+#: ../../Plugin.cs:194
+#, csharp-format
+msgid "Failed to load config: {0}"
+msgstr "加载配置文件失败: {0}"
+
+#: ../../Plugin.cs:210 ../../MiscCommands.cs:316
+#, csharp-format
+msgid "Failed to save config: {0}"
+msgstr "保存配置文件失败: {0}"
+
+#: ../../Vanilla.cs:51
+#, csharp-format
+msgid "Failed to set parent group to {0}: {1}"
+msgstr "无法将父组设置为{0}: {1}"
+
+#: ../../Hooks.cs:13
+#, csharp-format
+msgid "Hook (Detour) failed for \"{0}\": source is null"
+msgstr "Hook (Detour) \"{0}\" 失败: 源方法为null"
+
+#: ../../Hooks.cs:26
+#, csharp-format
+msgid "Hook (Manipulate) failed for \"{0}\": source is null"
+msgstr "Hook (Manipulate) \"{0}\" 失败: 源方法为null"
+
+#: ../../WorldGen.cs:71
+msgid "Inspecting tile frame, you may experience lag."
+msgstr "正在检查Tile Frame, 你可能会遇到卡顿."
+
+#: ../../Timeout.cs:77
+msgid "Interval must be greater than 0!"
+msgstr "间隔时间必须大于0!"
+
+#: ../../MiscCommands.cs:345
+msgid "Invalid command. Perhaps you can quote it?"
+msgstr "无效命令, 或许需要加上引号？"
+
+#: ../../Timeout.cs:96
+msgid "Invalid id!"
+msgstr "无效ID!"
+
+#: ../../Timeout.cs:72
+msgid "Invalid interval!"
+msgstr "无效执行间隔!"
+
+#: ../../MiscCommands.cs:26
+msgid "Invalid max players."
+msgstr "无效最大玩家数."
+
+#: ../../MiscCommands.cs:61 ../../MiscCommands.cs:157
+msgid "Invalid player."
+msgstr "无效玩家."
+
+#: ../../Timeout.cs:91
+msgid "Invalid syntax! Proper syntax: /clearinterval <id>"
+msgstr "无效语法! 正确语法: /clearinterval <id>"
+
+#: ../../Timeout.cs:67
+msgid "Invalid syntax! Proper syntax: /setinterval <command> <interval>"
+msgstr "无效语法! 正确语法: /setinterval <命令> <执行间隔>"
+
+#: ../../Timeout.cs:42
+msgid "Invalid syntax! Proper syntax: /settimeout <command> <timeout>"
+msgstr "无效语法! 正确语法: /settimeout <命令> <延迟时间>"
+
+#: ../../MiscCommands.cs:44
+msgid "Invalid syntax. Perhaps you can quote it?"
+msgstr "无效语法! 或许需要加上引号？"
+
+#: ../../MiscCommands.cs:35
+msgid "Invalid syntax. Who and what to run?"
+msgstr "无效语法! 要以谁的身份执行什么命令呢?"
+
+#: ../../Timeout.cs:47
+msgid "Invalid timeout!"
+msgstr "无效延迟时间!"
+
+#: ../../Enhancements.cs:185
+msgid "IPv6 dual stack enabled."
+msgstr "IPv6双栈模式已启用."
+
+#: ../../Json.cs:69
+#, csharp-format
+msgid "Json deserialize got undefined pair in object {0} (\"{1}\": {2})"
+msgstr "JSON反序列化在对象{0}中发现未定义的键值对(\"{1}\": {2})"
+
+#: ../../Plugin.cs:445
+msgid ""
+"Listening on existing address, attempts to enable IPv6 dual-stack without "
+"-ip."
+msgstr "正在监听现有地址, 尝试在没有-ip参数的情况下启用IPv6双栈模式."
+
+#: ../../Mitigations.cs:671
+msgid ""
+"Main.ActiveWorldFileData is null. This probably indicates your world is "
+"corrupted."
+msgstr "Main.ActiveWorldFileData为空, 这可能表明你的世界文件已损坏."
+
+#: ../../MiscCommands.cs:22
+#, csharp-format
+msgid "Max players set to {0}."
+msgstr "最大玩家数已设置为{0}"
+
+#: ../../MiscCommands.cs:15
+#, csharp-format
+msgid "Max players: {0}"
+msgstr "当前最大玩家数: {0}"
+
+#: ../../MiscCommands.cs:165
+msgid "More than 20 players will be reset. Use -f to force."
+msgstr "超过20个玩家将会被重置, 使用-f强制重置."
+
+#: ../../Mitigations.cs:483 ../../Mitigations.cs:538
+#, csharp-format
+msgid "Nearby players: {0:F1}"
+msgstr "附近玩家: {0:F1}"
+
+#: ../../MiscCommands.cs:244
+msgid "No accounts found."
+msgstr "未找到任何账号."
+
+#: ../../MiscCommands.cs:325
+msgid "No command given."
+msgstr "未提供命令."
+
+#: ../../Timeout.cs:102 ../../Timeout.cs:123
+msgid "No commands found!"
+msgstr "未找到任何待执行命令！"
+
+#: ../../PermissionCheck.cs:56
+msgid "No permission check history found."
+msgstr "没有权限检查历史."
+
+#: ../../PermissionCheck.cs:60
+msgid "Permission check history:"
+msgstr "权限检查历史："
+
+#: ../../Ping.cs:96
+msgid "Ping failed."
+msgstr "获取Ping失败."
+
+#: ../../Ping.cs:92
+#, csharp-format
+msgid "Ping: {0:F1}ms"
+msgstr "Ping: {0:F1}ms"
+
+#: ../../Mitigations.cs:447
+#, csharp-format
+msgid "Set field \"{0}\" to \"{1}\"."
+msgstr "将字段\"{0}\"设置为\"{1}\"."
+
+#: ../../WorldGen.cs:33
+#, csharp-format
+msgid "Testing tile frame {0},{1}, granularity {2},{3}"
+msgstr "正在测试Tile Frame {0},{1}, 粒度{2},{3}"
+
+#: ../../WorldGen.cs:46
+#, csharp-format
+msgid "Testing tile frame {0},{1}..."
+msgstr "正在测试Tile Frame {0},{1}..."
+
+#: ../../WorldGen.cs:39
+#, csharp-format
+msgid "Testing tile frame {0}..."
+msgstr "正在测试Tile Frame {0}..."
+
+#: ../../Json.cs:29
+msgid "The config is empty"
+msgstr "配置文件为空"
+
+#: ../../TileProvider/Misc.cs:79
+msgid "Tile provider set to checkedgeneric."
+msgstr "地图读写接口已设为checkedgeneric."
+
+#: ../../TileProvider/Misc.cs:74
+msgid "Tile provider set to checkedtyped."
+msgstr "地图读写接口已设为checkedtyped."
+
+#: ../../TileProvider/Misc.cs:69
+msgid "Tile provider set to constilation."
+msgstr "地图读写接口已设为constilation."
+
+#: ../../TileProvider/Misc.cs:59
+msgid "Tile provider set to default."
+msgstr "地图读写接口已设置为默认值."
+
+#: ../../TileProvider/Misc.cs:64
+msgid "Tile provider set to heaptile."
+msgstr "地图读写接口已设为heaptile."
+
+#: ../../WorldGen.cs:51
+msgid "TileFrame completed without error."
+msgstr "TileFrame执行完成, 无错误."
+
+#: ../../Timeout.cs:52
+msgid "Timeout must be greater than 0!"
+msgstr "延迟时间必须大于0!"
+
+#: ../../Plugin.cs:34
+#, csharp-format
+msgid "TShock is running under {0}, some features may not work."
+msgstr "TShock正在{0}下运行, 部分功能可能无法正常工作."
+
+#: ../../Mitigations.cs:453
+#, csharp-format
+msgid "Unexpected AcceptPartialUpdatedConfig {0}"
+msgstr "非预期AcceptPartialUpdatedConfig值 {0}"
+
+#: ../../Mitigations.cs:314
+#, csharp-format
+msgid "Unexpected coin {0}"
+msgstr "非预期钱币 {0}"
+
+#: ../../Enhancements.cs:88
+#, csharp-format
+msgid "Unexpected option {0}"
+msgstr "非预期选项 {0}"
+
+#: ../../Json.cs:183
+#, csharp-format
+msgid "Unknown packet type: {0}"
+msgstr "未知的数据包类型: {0}"
+
+#: ../../Json.cs:198
+msgid "Unreachable code: PacketFilter is not a bool or string"
+msgstr "Unreachable code：PacketFilter不是布尔值或字符串类型"
+
+#: ../../Json.cs:104
+msgid "Unreachable code: ReadJson is not a Optional"
+msgstr "Unreachable code：ReadJson不是Optional类型"
+
+#: ../../Json.cs:96
+msgid "Unreachable code: WriteJson is not a Optional"
+msgstr "Unreachable code：WriteJson不是Optional类型"
+
+#: ../../LangCommand.cs:59
+#, csharp-format
+msgid "Unrecognized culture {0}"
+msgstr "无法识别区域设置 {0}"
+
+#: ../../Modded.cs:64
+#, csharp-format
+msgid ""
+"Unusual name change detected: {0} claimed the name \"{1}\" but previously "
+"known as {2}"
+msgstr "检测到异常改名行为：{0}试图将名称从\"{2}\"更改为\"{1}\""
+
+#: ../../Modded.cs:82
+#, csharp-format
+msgid "Unusual packet {0} detected at state {1} and disconnected. ({2})"
+msgstr "在状态{1}收到异常数据包{0}，已断开连接连接 ({2})"
+
+#: ../../TileProvider/Misc.cs:82
+msgid ""
+"Usage: /tileprovider <default|heaptile|constilation|checkedtyped|"
+"checkedgeneric>"
+msgstr ""
+"用法: /tileprovider <default|heaptile|constilation|checkedtyped|"
+"checkedgeneric>"
+
+#: ../../MiscCommands.cs:137
+msgid "You do not have permission to reset all players characters."
+msgstr "你没有权限重置所有玩家的角色数据."
+
+#: ../../MiscCommands.cs:151
+msgid "You do not have permission to reset other players characters."
+msgstr "你没有权限重置其他玩家的角色数据."
+
+#: ../../WorldGen.cs:34
+msgid "You may experience lag."
+msgstr "你可能会遇到卡顿."
+
+#: ../../MiscCommands.cs:180
+msgid "Your character data will be reset. Use -f to force."
+msgstr "你的角色数据将被重置, 使用-f强制重置."

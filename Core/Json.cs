@@ -26,7 +26,7 @@ public static class JsonUtils
             ContractResolver = new CustomContractResolver { WarnExtensionData = true },
         };
 
-        return JsonConvert.DeserializeObject<T>(value, jss) ?? throw new NullReferenceException("The config is empty");
+        return JsonConvert.DeserializeObject<T>(value, jss) ?? throw new NullReferenceException(GetString("The config is empty"));
     }
 
     public static string SerializeConfig<T>(T value, bool skip = true)
@@ -66,7 +66,7 @@ public class CustomContractResolver : DefaultContractResolver
             var orig = joc.ExtensionDataSetter;
             joc.ExtensionDataSetter = (obj, key, value) =>
             {
-                Console.WriteLine($"Json deserialize got undefined pair in object {obj.GetType()} (\"{key}\": {value})");
+                Console.WriteLine(GetString($"Json deserialize got undefined pair in object {obj.GetType()} (\"{key}\": {value})"));
                 orig?.Invoke(obj, key, value);
             };
         }
@@ -93,7 +93,7 @@ public class OptionalConverter : JsonConverter
         }
         else
         {
-            throw new Exception("Unreachable code: WriteJson is not a Optional");
+            throw new Exception(GetString(GetString("Unreachable code: WriteJson is not a Optional")));
         }
     }
 
@@ -101,7 +101,7 @@ public class OptionalConverter : JsonConverter
     {
         if (existingValue is not Optional o)
         {
-            throw new Exception("Unreachable code: ReadJson is not a Optional");
+            throw new Exception(GetString(GetString("Unreachable code: ReadJson is not a Optional")));
         }
         var type = objectType.GenericTypeArguments[0];
         try
@@ -180,7 +180,7 @@ public class PacketFilterConverter : JsonConverter<PacketFilter>
         {
             return Enum.TryParse<PacketTypes>(value, out var type)
                 ? (byte) type
-                : byte.TryParse(value, out var result) ? result : throw new Exception($"Unknown packet type: {value}");
+                : byte.TryParse(value, out var result) ? result : throw new Exception(GetString($"Unknown packet type: {value}"));
         }
 
         var type = reader?.ValueType;
@@ -195,6 +195,6 @@ public class PacketFilterConverter : JsonConverter<PacketFilter>
             return new PacketFilter(split);
         }
 
-        throw new Exception("Unreachable code: PacketFilter is not a bool or string");
+        throw new Exception(GetString("Unreachable code: PacketFilter is not a bool or string"));
     }
 }

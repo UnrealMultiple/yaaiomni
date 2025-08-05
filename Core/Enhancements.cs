@@ -85,7 +85,7 @@ public partial class Plugin
             case Config.EnhancementsSettings.NameCollisionAction.Unhandled:
                 return;
             default:
-                throw new System.Runtime.CompilerServices.SwitchExpressionException($"Unexpected option {this.config.Enhancements.Value.NameCollision.Value}");
+                throw new System.Runtime.CompilerServices.SwitchExpressionException(GetString($"Unexpected option {this.config.Enhancements.Value.NameCollision.Value}"));
         }
         if (first)
         {
@@ -182,15 +182,15 @@ public partial class Plugin
             try
             {
                 listener.Server.DualMode = true;
-                TShockAPI.TShock.Log.ConsoleInfo("IPv6 dual stack enabled.");
+                TShockAPI.TShock.Log.ConsoleInfo(GetString("IPv6 dual stack enabled."));
             }
             catch (NotSupportedException)
             {
-                Utils.ShowInfo($"Failed to enable IPv6 dual stack on {listener.LocalEndpoint}: not supported.");
+                Utils.ShowInfo(GetString($"Failed to enable IPv6 dual stack on {listener.LocalEndpoint}: not supported."));
             }
             catch (Exception e)
             {
-                Utils.ShowError($"Failed to enable IPv6 dual stack on {listener.LocalEndpoint}: {e}");
+                Utils.ShowError(GetString($"Failed to enable IPv6 dual stack on {listener.LocalEndpoint}: {e}"));
             }
         }
         orig(listener, backlog);

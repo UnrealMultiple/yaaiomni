@@ -98,7 +98,7 @@ public partial class Plugin : TerrariaPlugin
         TShockAPI.GetDataHandlers.TogglePvp.Register(this.GDHook_Permission_TogglePvp);
         TShockAPI.GetDataHandlers.PlayerTeam.Register(this.GDHook_Permission_PlayerTeam);
         TShockAPI.Hooks.GeneralHooks.ReloadEvent += (args) => this.LoadConfig(TShockAPI.TSPlayer.Server);
-        Utils.ConsolePlayer.Instance.SendSuccessMessage($"{this.Name} initialized.");
+        Utils.ConsolePlayer.Instance.SendSuccessMessage(GetString($"{this.Name} initialized."));
     }
 
     private void LoadConfig(TShockAPI.TSPlayer? initiator)
@@ -112,7 +112,7 @@ public partial class Plugin : TerrariaPlugin
         }
         catch (Exception ex)
         {
-            initiator?.SendErrorMessage($"Failed to load config: {ex.Message}");
+            initiator?.SendErrorMessage(GetString($"Failed to load config: {ex.Message}"));
         }
 
         this.config ??= new Config();
@@ -127,7 +127,7 @@ public partial class Plugin : TerrariaPlugin
         }
         catch (Exception ex)
         {
-            initiator?.SendErrorMessage($"Failed to save config: {ex.Message}");
+            initiator?.SendErrorMessage(GetString($"Failed to save config: {ex.Message}"));
             return;
         }
     }

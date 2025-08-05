@@ -21,8 +21,8 @@ public partial class Plugin
 
         if (args.Parameters.Count == 0)
         {
-            args.Player.SendInfoMessage($"Current TShock Lang: {this._targetCulture ?? this._tscinfo.Invoke(null, [])}");
-            args.Player.SendInfoMessage($"Current Game Lang: {LanguageManager.Instance.ActiveCulture.CultureInfo}");
+            args.Player.SendInfoMessage(GetString($"Current TShock Lang: {this._targetCulture ?? this._tscinfo.Invoke(null, [])}"));
+            args.Player.SendInfoMessage(GetString($"Current Game Lang: {LanguageManager.Instance.ActiveCulture.CultureInfo}"));
             return;
         }
 
@@ -56,7 +56,7 @@ public partial class Plugin
         {
             if (!Utils.TryParseGameCulture(remaining[0], out var culture))
             {
-                args.Player.SendErrorMessage($"Unrecognized culture {remaining[0]}");
+                args.Player.SendErrorMessage(GetString($"Unrecognized culture {remaining[0]}"));
                 return;
             }
             LanguageManager.Instance.SetLanguage(culture);
@@ -85,7 +85,7 @@ public partial class Plugin
     private void ResetGameLocale()
     {
         typeof(CultureInfo).GetField("s_currentThreadUICulture", _bfany)?.SetValue(null, null);
-        Console.WriteLine($"Existing culture: \"{CultureInfo.CurrentUICulture}\" ({CultureInfo.CurrentUICulture.EnglishName}).");
+        Console.WriteLine(GetString($"Existing culture: \"{CultureInfo.CurrentUICulture}\" ({CultureInfo.CurrentUICulture.EnglishName})."));
         if (LanguageManager.Instance.ActiveCulture != GameCulture.DefaultCulture)
         {
             // Language is already set explicitly
@@ -96,11 +96,11 @@ public partial class Plugin
         if (Utils.TryParseGameCulture(CultureInfo.CurrentUICulture.ToString(), out var result, true))
         {
             LanguageManager.Instance.SetLanguage(result);
-            Console.WriteLine($"Current culture set to {CultureInfo.CurrentUICulture}.");
+            Console.WriteLine(GetString($"Current culture set to {CultureInfo.CurrentUICulture}."));
         }
         else
         {
-            Utils.ShowError($"Failed to find nearest language for \"{CultureInfo.CurrentUICulture}\" ({CultureInfo.CurrentUICulture.EnglishName}).");
+            Utils.ShowError(GetString($"Failed to find nearest language for \"{CultureInfo.CurrentUICulture}\" ({CultureInfo.CurrentUICulture.EnglishName})."));
         }
     }
 }

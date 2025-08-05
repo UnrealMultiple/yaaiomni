@@ -1,0 +1,199 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Misc\n"
+"POT-Creation-Date: 2025-08-05 20:21:01+0800\n"
+"PO-Revision-Date: 2025-08-05 20:21:01+0800\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: GetText.NET Extractor\n"
+
+#: ../../Commands.cs:130
+#, csharp-format
+msgid "    File: {0}"
+msgstr ""
+
+#: ../../Commands.cs:126
+#, csharp-format
+msgid "    Location: ({0})"
+msgstr ""
+
+#: ../../Commands.cs:121
+msgid "    No Assembly found"
+msgstr ""
+
+#: ../../Commands.cs:135
+msgid "    No Plugin found"
+msgstr ""
+
+#: ../../Commands.cs:141
+#, csharp-format
+msgid "    Plugin: {0} v{1} by {2}"
+msgstr ""
+
+#: ../../Commands.cs:117
+#, csharp-format
+msgid "    Signature: {0}"
+msgstr ""
+
+#: ../../Commands.cs:218
+#, csharp-format
+msgid "[Omni] {0} ticks in {1:F2} seconds ({2:F2} tps)"
+msgstr ""
+
+#: ../../Plugin.cs:101
+#, csharp-format
+msgid "{0} initialized."
+msgstr ""
+
+#: ../../Commands.cs:202
+#, csharp-format
+msgid "{0} ticks / {1} seconds: {2:F2}"
+msgstr ""
+
+#: ../../Commands.cs:99
+#, csharp-format
+msgid "ChatCommands Found: {0}"
+msgstr ""
+
+#: ../../Commands.cs:171
+msgid "Core Omni is null while tracking ticks per second."
+msgstr ""
+
+#: ../../Plugin.cs:115
+#, csharp-format
+msgid "Failed to load config: {0}"
+msgstr ""
+
+#: ../../Plugin.cs:130
+#: ../../Commands.cs:369
+#, csharp-format
+msgid "Failed to save config: {0}"
+msgstr ""
+
+#: ../../Commands.cs:22
+msgid "GC Triggered."
+msgstr ""
+
+#: ../../Hooks.cs:13
+#, csharp-format
+msgid "Hook (Detour) failed for \"{0}\": source is null"
+msgstr ""
+
+#: ../../Hooks.cs:26
+#, csharp-format
+msgid "Hook (Manipulate) failed for \"{0}\": source is null"
+msgstr ""
+
+#: ../../Commands.cs:60
+#, csharp-format
+msgid "Index: {0} {1} {2} State: {3} Bytes: {4}"
+msgstr ""
+
+#: ../../Commands.cs:45
+msgid "Invalid broadcast message."
+msgstr ""
+
+#: ../../Commands.cs:93
+msgid "Invalid command."
+msgstr ""
+
+#: ../../Commands.cs:72
+#: ../../Commands.cs:78
+#: ../../Commands.cs:151
+#: ../../Commands.cs:157
+#: ../../Commands.cs:244
+#: ../../Commands.cs:305
+msgid "Invalid player."
+msgstr ""
+
+#: ../../Commands.cs:255
+#: ../../Commands.cs:266
+msgid "Invalid PvP status."
+msgstr ""
+
+#: ../../Commands.cs:284
+#: ../../Commands.cs:316
+#: ../../Commands.cs:327
+msgid "Invalid team."
+msgstr ""
+
+#: ../../PermissionRestrict.cs:121
+#: ../../PermissionRestrict.cs:132
+#: ../../PermissionRestrict.cs:141
+#, csharp-format
+msgid "Player {0} tried to summon boss {1} without permission {2}.{3}."
+msgstr ""
+
+#: ../../PermissionRestrict.cs:95
+#, csharp-format
+msgid "Player {0} tried to sync loadout without permission {1}."
+msgstr ""
+
+#: ../../PermissionRestrict.cs:24
+#, csharp-format
+msgid "Player {0} tried to toggle PvP to {1} without permission {2}."
+msgstr ""
+
+#: ../../PermissionRestrict.cs:32
+#, csharp-format
+msgid "Player {0} tried to toggle PvP to {1} without permission {2}.{3}."
+msgstr ""
+
+#: ../../PermissionRestrict.cs:55
+#, csharp-format
+msgid "Player {0} tried to toggle team to {1} without permission {2}."
+msgstr ""
+
+#: ../../PermissionRestrict.cs:63
+#, csharp-format
+msgid "Player {0} tried to toggle team to {1} without permission {2}.{3}."
+msgstr ""
+
+#: ../../Commands.cs:32
+msgid "SQLite Vacuum on TShock.DB triggered."
+msgstr ""
+
+#: ../../Commands.cs:353
+msgid "Stack Trace:"
+msgstr ""
+
+#: ../../Commands.cs:194
+msgid "Started tracking ticks per second."
+msgstr ""
+
+#: ../../Commands.cs:61
+#: ../../Commands.cs:62
+#, csharp-format
+msgid "Status: {0}"
+msgstr ""
+
+#: ../../Commands.cs:36
+msgid "TShock.DB is not SQLite."
+msgstr ""
+
+#: ../../Commands.cs:189
+#, csharp-format
+msgid "UPS Bench: {0} in {1} ({2:F2} per second)"
+msgstr ""
+
+#: ../../Commands.cs:237
+msgid "You don't have permission to set other players' PvP status."
+msgstr ""
+
+#: ../../Commands.cs:298
+msgid "You don't have permission to set other players' team."
+msgstr ""
+
+#: ../../Commands.cs:229
+#, csharp-format
+msgid "Your PvP status: {0}"
+msgstr ""
+
+#: ../../Commands.cs:290
+#, csharp-format
+msgid "Your team: {0}"
+msgstr ""
+

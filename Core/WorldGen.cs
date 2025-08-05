@@ -30,25 +30,25 @@ public partial class Plugin
                 }
             }
         }
-        args.Player.SendInfoMessage($"Testing tile frame {startX},{startY}, granularity {granularityX},{granularityY}");
-        args.Player.SendInfoMessage("You may experience lag.");
+        args.Player.SendInfoMessage(GetString(GetString($"Testing tile frame {startX},{startY}, granularity {granularityX},{granularityY}")));
+        args.Player.SendInfoMessage(GetString("You may experience lag."));
         for (var i = startX; i < Terraria.Main.maxTilesX; i++)
         {
             if (i % granularityX == 0)
             {
-                args.Player.SendInfoMessage($"Testing tile frame {i}...");
+                args.Player.SendInfoMessage(GetString($"Testing tile frame {i}..."));
             }
             var start = i == startX ? startY : 0;
             for (var j = start; j < Terraria.Main.maxTilesY; j++)
             {
                 if (j % granularityY == 0)
                 {
-                    args.Player.SendInfoMessage($"Testing tile frame {i},{j}...");
+                    args.Player.SendInfoMessage(GetString($"Testing tile frame {i},{j}..."));
                 }
                 Terraria.WorldGen.TileFrame(i, j);
             }
         }
-        args.Player.SendInfoMessage("TileFrame completed without error.");
+        args.Player.SendInfoMessage(GetString("TileFrame completed without error."));
     }
 
     private bool _inspectTileFrame = false;
@@ -58,7 +58,7 @@ public partial class Plugin
     {
         if (this._inspectTileFrame)
         {
-            args.Player.SendErrorMessage("Already inspecting tile frame.");
+            args.Player.SendErrorMessage(GetString("Already inspecting tile frame."));
             return;
         }
 
@@ -68,7 +68,7 @@ public partial class Plugin
             typeof(Terraria.WorldGen)
                 .GetMethod(nameof(Terraria.WorldGen.TileFrame), _bfany),
             this.Detour_InspectTileFrame);
-        args.Player.SendInfoMessage("Inspecting tile frame, you may experience lag.");
+        args.Player.SendInfoMessage(GetString("Inspecting tile frame, you may experience lag."));
     }
 
     private readonly AsyncLocal<int> _frameCount = new AsyncLocal<int>();
@@ -99,7 +99,7 @@ public partial class Plugin
                             Terraria.IO.WorldFile.SaveWorld_Version2(bw);
                         }
                         File.WriteAllBytes(Path.Combine(TShockAPI.TShock.SavePath, $"dumpmap_{DateTime.UtcNow:yyyyMMddHHmmss}_{this._dumpCounter++}.wld"), ms.ToArray());
-                        TShockAPI.TShock.Log.ConsoleError($"Detour_InspectTileFrame: Dump crashing map to dumpmap.wld.bak ({TShockAPI.TShock.SavePath})");
+                        TShockAPI.TShock.Log.ConsoleError(GetString($"Detour_InspectTileFrame: Dump crashing map to dumpmap.wld.bak ({TShockAPI.TShock.SavePath})"));
                     }
                     if (mtg.ClearOverflowWorldGenStackTrace)
                     {
@@ -110,7 +110,7 @@ public partial class Plugin
                             var array = new byte[TerrariaApi.Server.HeapTile.kHeapTileSize];
                             var ht = new TerrariaApi.Server.HeapTile(array, 0, 0);
                             ht.CopyFrom(Terraria.Main.tile[ti, tj]);
-                            TShockAPI.TShock.Log.ConsoleError($"Detour_InspectTileFrame: Clearing tile {ti},{tj} (content: {Convert.ToHexString(array)})");
+                            TShockAPI.TShock.Log.ConsoleError(GetString($"Detour_InspectTileFrame: Clearing tile {ti},{tj} (content: {Convert.ToHexString(array)})"));
                             Terraria.Main.tile[ti, tj].Clear(Terraria.DataStructures.TileDataType.All);
                         }
                         this._haltSource.Clear();
@@ -122,7 +122,7 @@ public partial class Plugin
         const int WARN_LIMIT = 130;
         if (frames >= WARN_LIMIT)
         {
-            TShockAPI.TShock.Log.ConsoleDebug($"Detour_InspectTileFrame: {frames} frames at {i}, {j}");
+            TShockAPI.TShock.Log.ConsoleDebug(GetString($"Detour_InspectTileFrame: {frames} frames at {i}, {j}"));
 
             const int HALT_LIMIT = 150;
             if (frames == HALT_LIMIT)
@@ -131,10 +131,10 @@ public partial class Plugin
             }
             else if (frames > HALT_LIMIT)
             {
-                TShockAPI.TShock.Log.ConsoleError($"Detour_InspectTileFrame: {frames} frames with source of {string.Join(", ", this._haltSource)}.");
+                TShockAPI.TShock.Log.ConsoleError(GetString($"Detour_InspectTileFrame: {frames} frames with source of {string.Join(", ", this._haltSource)}."));
                 this._worldgenHalting = true;
                 var st = new System.Diagnostics.StackTrace(false);
-                TShockAPI.TShock.Log.ConsoleDebug($"Detour_InspectTileFrame Trace: {st}");
+                TShockAPI.TShock.Log.ConsoleDebug(GetString($"Detour_InspectTileFrame Trace: {st}"));
                 return;
             }
         }

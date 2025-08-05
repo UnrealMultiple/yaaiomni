@@ -89,11 +89,11 @@ public partial class Plugin
         try
         {
             var player = args.Player;
-            this.Ping(player, (p, t) => p?.SendSuccessMessage($"Ping: {t.TotalMilliseconds:F1}ms"));
+            this.Ping(player, (p, t) => p?.SendSuccessMessage(GetString($"Ping: {t.TotalMilliseconds:F1}ms")));
         }
         catch (Exception e)
         {
-            args.Player.SendErrorMessage("Ping failed.");
+            args.Player.SendErrorMessage(GetString("Ping failed."));
             TShockAPI.TShock.Log.ConsoleError(e.ToString());
         }
     }

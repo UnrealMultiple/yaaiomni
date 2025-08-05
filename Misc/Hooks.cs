@@ -10,7 +10,7 @@ partial class Plugin
     {
         if (from is null)
         {
-            Utils.ShowError($"Hook (Detour) failed for \"{name}\": source is null");
+            Utils.ShowError(GetString($"Hook (Detour) failed for \"{name}\": source is null"));
         }
         else
         {
@@ -23,7 +23,7 @@ partial class Plugin
     {
         if (from is null)
         {
-            Utils.ShowError($"Hook (Manipulate) failed for \"{name}\": source is null");
+            Utils.ShowError(GetString($"Hook (Manipulate) failed for \"{name}\": source is null"));
         }
         else
         {

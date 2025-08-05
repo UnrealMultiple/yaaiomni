@@ -39,24 +39,24 @@ public partial class Plugin
     {
         if (args.Parameters.Count < 2)
         {
-            args.Player.SendErrorMessage("Invalid syntax! Proper syntax: /settimeout <command> <timeout>");
+            args.Player.SendErrorMessage(GetString("Invalid syntax! Proper syntax: /settimeout <command> <timeout>"));
             return;
         }
         if (!int.TryParse(args.Parameters[1], out var timeout))
         {
-            args.Player.SendErrorMessage("Invalid timeout!");
+            args.Player.SendErrorMessage(GetString("Invalid timeout!"));
             return;
         }
         if (timeout < 1)
         {
-            args.Player.SendErrorMessage("Timeout must be greater than 0!");
+            args.Player.SendErrorMessage(GetString("Timeout must be greater than 0!"));
             return;
         }
 
         var commands = this[args.Player]!.DelayCommands;
         var cmd = new AttachedData.DelayCommand(args.Parameters[0], start: this.UpdateCounter, timeout: timeout);
         commands.Add(cmd);
-        args.Player.SendSuccessMessage($"Command {args.Parameters[0]} will be executed once in the future (t: {timeout}, id: {(uint) cmd.GetHashCode()}).");
+        args.Player.SendSuccessMessage(GetString($"Command {args.Parameters[0]} will be executed once in the future (t: {timeout}, id: {(uint) cmd.GetHashCode()})."));
     }
 
     [Command("SetInterval", "setinterval", Permission = "chireiden.omni.interval")]
@@ -64,23 +64,23 @@ public partial class Plugin
     {
         if (args.Parameters.Count < 2)
         {
-            args.Player.SendErrorMessage("Invalid syntax! Proper syntax: /setinterval <command> <interval>");
+            args.Player.SendErrorMessage(GetString("Invalid syntax! Proper syntax: /setinterval <command> <interval>"));
             return;
         }
         if (!int.TryParse(args.Parameters[1], out var interval))
         {
-            args.Player.SendErrorMessage("Invalid interval!");
+            args.Player.SendErrorMessage(GetString("Invalid interval!"));
             return;
         }
         if (interval < 1)
         {
-            args.Player.SendErrorMessage("Interval must be greater than 0!");
+            args.Player.SendErrorMessage(GetString("Interval must be greater than 0!"));
             return;
         }
         var commands = this[args.Player]!.DelayCommands;
         var cmd = new AttachedData.DelayCommand(args.Parameters[0], start: this.UpdateCounter, timeout: interval, repeat: 0);
         commands.Add(cmd);
-        args.Player.SendSuccessMessage($"Command {args.Parameters[0]} will be executed in the future (t: {interval}, id: {(uint) cmd.GetHashCode()}).");
+        args.Player.SendSuccessMessage(GetString($"Command {args.Parameters[0]} will be executed in the future (t: {interval}, id: {(uint) cmd.GetHashCode()})."));
     }
 
     [Command("ClearInterval", "clearinterval", Permission = "chireiden.omni.cleartimeout")]
@@ -88,18 +88,18 @@ public partial class Plugin
     {
         if (args.Parameters.Count < 1)
         {
-            args.Player.SendErrorMessage("Invalid syntax! Proper syntax: /clearinterval <id>");
+            args.Player.SendErrorMessage(GetString("Invalid syntax! Proper syntax: /clearinterval <id>"));
             return;
         }
         if (!uint.TryParse(args.Parameters[0], out var id))
         {
-            args.Player.SendErrorMessage("Invalid id!");
+            args.Player.SendErrorMessage(GetString("Invalid id!"));
             return;
         }
         var commands = this[args.Player]!.DelayCommands;
         if (commands.Count == 0)
         {
-            args.Player.SendErrorMessage("No commands found!");
+            args.Player.SendErrorMessage(GetString("No commands found!"));
             return;
         }
         for (var i = 0; i < commands.Count; i++)
@@ -108,7 +108,7 @@ public partial class Plugin
             if ((uint) cmd.GetHashCode() == id)
             {
                 commands.RemoveAt(i);
-                args.Player.SendSuccessMessage($"Command {id} ({cmd.Command}) has been removed.");
+                args.Player.SendSuccessMessage(GetString($"Command {id} ({cmd.Command}) has been removed."));
                 return;
             }
         }
@@ -120,13 +120,13 @@ public partial class Plugin
         var commands = this[args.Player]!.DelayCommands;
         if (commands.Count == 0)
         {
-            args.Player.SendErrorMessage("No commands found!");
+            args.Player.SendErrorMessage(GetString("No commands found!"));
             return;
         }
-        args.Player.SendInfoMessage("Commands:");
+        args.Player.SendInfoMessage(GetString("Commands:"));
         foreach (var cmd in commands)
         {
-            args.Player.SendInfoMessage($"Command: {cmd.Command}, Timeout: {cmd.Timeout}, Repeat: {cmd.Repeat}, Id: {(uint) cmd.GetHashCode()}");
+            args.Player.SendInfoMessage(GetString($"Command: {cmd.Command}, Timeout: {cmd.Timeout}, Repeat: {cmd.Repeat}, Id: {(uint) cmd.GetHashCode()}"));
         }
     }
 }

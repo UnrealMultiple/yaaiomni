@@ -31,6 +31,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="..\Shared\**\*.cs"/>
+    <EmbeddedResource Include=".\i18n\*.mo">
+      <LogicalName>i18n.%(FileName).mo</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="TShock" Version="5.2.2">
       <ExcludeAssets>ContentFiles</ExcludeAssets>
     </PackageReference>

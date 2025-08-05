@@ -1,0 +1,558 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Plugin\n"
+"POT-Creation-Date: 2025-08-05 20:20:59+0800\n"
+"PO-Revision-Date: 2025-08-05 20:20:59+0800\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: GetText.NET Extractor\n"
+
+#: ../../Utils.cs:550
+#, csharp-format
+msgid "  --> Current: {0} (v{1})"
+msgstr ""
+
+#: ../../Utils.cs:546
+#, csharp-format
+msgid "  --> Loaded:  {0} (v{1})"
+msgstr ""
+
+#: ../../Plugin.cs:228
+#, csharp-format
+msgid "  {0:G} connections per IP per {1:G} seconds"
+msgstr ""
+
+#: ../../Plugin.cs:219
+#, csharp-format
+msgid "  {0:G} messages per {1:G} seconds"
+msgstr ""
+
+#: ../../SocketProvider.cs:276
+#, csharp-format
+msgid "[DbgPkt] Outbound message size mismatch: {0} != {1} (to {2})"
+msgstr ""
+
+#: ../../MiscCommands.cs:173
+#, csharp-format
+msgid "{0} (Index: {1})"
+msgstr ""
+
+#: ../../Utils.cs:553
+#, csharp-format
+msgid "{0} already loaded."
+msgstr ""
+
+#: ../../Plugin.cs:320
+#, csharp-format
+msgid "{0} loaded."
+msgstr ""
+
+#: ../../MiscCommands.cs:175
+#, csharp-format
+msgid "{0} will be reset. Use -f to force."
+msgstr ""
+
+#: ../../MiscCommands.cs:260
+msgid "Account not found."
+msgstr ""
+
+#: ../../WorldGen.cs:61
+msgid "Already inspecting tile frame."
+msgstr ""
+
+#: ../../Plugin.cs:288
+msgid "An identifier for IP address with subnet mask (e.g. ipa:1.2.3.4/24)"
+msgstr ""
+
+#: ../../Plugin.cs:284
+msgid ""
+"An identifier for Regex matching the character name (e.g. namea:^.{8,}$)"
+msgstr ""
+
+#: ../../Mitigations.cs:391
+#: ../../Mitigations.cs:411
+#, csharp-format
+msgid "Attempt hook {0}.{1} failed, might be already fixed."
+msgstr ""
+
+#: ../../TileProvider/Misc.cs:38
+#, csharp-format
+msgid ""
+"Attempt to extend the tile provider because we need {0}x{1} but we only have "
+"{2}x{3}."
+msgstr ""
+
+#: ../../Mitigations.cs:471
+#, csharp-format
+msgid "Attempt to spawn item using glitched door style: {0}."
+msgstr ""
+
+#: ../../Mitigations.cs:526
+#, csharp-format
+msgid "Attempt to spawn item using glitched torch style: {0}"
+msgstr ""
+
+#: ../../MiscCommands.cs:337
+#, csharp-format
+msgid "Background task ({0} @ {1}) queued."
+msgstr ""
+
+#: ../../MiscCommands.cs:332
+#, csharp-format
+msgid "Background task ({0} @ {1}) started."
+msgstr ""
+
+#: ../../MoreBan.cs:28
+#, csharp-format
+msgid "Ban pattern {0} is invalid: {1}"
+msgstr ""
+
+#: ../../MoreBan.cs:39
+#, csharp-format
+msgid "Ban pattern {0} is invalid."
+msgstr ""
+
+#: ../../Plugin.cs:216
+msgid "ChatSpam limit applied:"
+msgstr ""
+
+#: ../../Timeout.cs:111
+#, csharp-format
+msgid "Command {0} ({1}) has been removed."
+msgstr ""
+
+#: ../../Timeout.cs:83
+#, csharp-format
+msgid "Command {0} will be executed in the future (t: {1}, id: {2})."
+msgstr ""
+
+#: ../../Timeout.cs:59
+#, csharp-format
+msgid "Command {0} will be executed once in the future (t: {1}, id: {2})."
+msgstr ""
+
+#: ../../Timeout.cs:129
+#, csharp-format
+msgid "Command: {0}, Timeout: {1}, Repeat: {2}, Id: {3}"
+msgstr ""
+
+#: ../../Timeout.cs:126
+msgid "Commands:"
+msgstr ""
+
+#: ../../PacketSpam.cs:113
+#, csharp-format
+msgid ""
+"Connection from {0} ({1}, state {2} for {3:G}s) disconnected due to "
+"connection state timeout."
+msgstr ""
+
+#: ../../PacketSpam.cs:76
+#, csharp-format
+msgid "Connection from {0} ({1}) rejected due to connection limit."
+msgstr ""
+
+#: ../../Plugin.cs:225
+msgid "Connection limit applied:"
+msgstr ""
+
+#: ../../PacketSpam.cs:101
+msgid "Connection time not found"
+msgstr ""
+
+#: ../../Plugin.cs:58
+#, csharp-format
+msgid "Console encoding set to {0}"
+msgstr ""
+
+#: ../../Plugin.cs:53
+#, csharp-format
+msgid "Console encoding set to default ({0})"
+msgstr ""
+
+#: ../../TileProvider/Misc.cs:83
+msgid "constilation and heaptile require less memory, but are slower."
+msgstr ""
+
+#: ../../Utils.cs:413
+#, csharp-format
+msgid "Could not find type {0} in TShock"
+msgstr ""
+
+#: ../../LangCommand.cs:99
+#, csharp-format
+msgid "Current culture set to {0}."
+msgstr ""
+
+#: ../../LangCommand.cs:25
+#, csharp-format
+msgid "Current Game Lang: {0}"
+msgstr ""
+
+#: ../../LangCommand.cs:24
+#, csharp-format
+msgid "Current TShock Lang: {0}"
+msgstr ""
+
+#: ../../WorldGen.cs:137
+#, csharp-format
+msgid "Detour_InspectTileFrame Trace: {0}"
+msgstr ""
+
+#: ../../WorldGen.cs:125
+#, csharp-format
+msgid "Detour_InspectTileFrame: {0} frames at {1}, {2}"
+msgstr ""
+
+#: ../../WorldGen.cs:134
+#, csharp-format
+msgid "Detour_InspectTileFrame: {0} frames with source of {1}."
+msgstr ""
+
+#: ../../WorldGen.cs:113
+#, csharp-format
+msgid "Detour_InspectTileFrame: Clearing tile {0},{1} (content: {2})"
+msgstr ""
+
+#: ../../WorldGen.cs:102
+#, csharp-format
+msgid "Detour_InspectTileFrame: Dump crashing map to dumpmap.wld.bak ({0})"
+msgstr ""
+
+#: ../../Utils.cs:543
+#, csharp-format
+msgid "Duplicate {0} loaded:"
+msgstr ""
+
+#: ../../LangCommand.cs:88
+#, csharp-format
+msgid "Existing culture: \"{0}\" ({1})."
+msgstr ""
+
+#: ../../MiscCommands.cs:285
+#, csharp-format
+msgid "Exported {0} to {1}."
+msgstr ""
+
+#: ../../Vanilla.cs:31
+#, csharp-format
+msgid "Failed to add permissions to group {0}."
+msgstr ""
+
+#: ../../Enhancements.cs:193
+#, csharp-format
+msgid "Failed to enable IPv6 dual stack on {0}: {1}"
+msgstr ""
+
+#: ../../Enhancements.cs:189
+#, csharp-format
+msgid "Failed to enable IPv6 dual stack on {0}: not supported."
+msgstr ""
+
+#: ../../MiscCommands.cs:289
+#, csharp-format
+msgid "Failed to export {0}: {1}"
+msgstr ""
+
+#: ../../MiscCommands.cs:290
+#, csharp-format
+msgid "Failed to export {0}."
+msgstr ""
+
+#: ../../TileProvider/Misc.cs:39
+msgid ""
+"Failed to extend the tile provider. The server will probably crash due to "
+"lack of array space."
+msgstr ""
+
+#: ../../Vanilla.cs:40
+#, csharp-format
+msgid "Failed to find group {0}."
+msgstr ""
+
+#: ../../LangCommand.cs:103
+#, csharp-format
+msgid "Failed to find nearest language for \"{0}\" ({1})."
+msgstr ""
+
+#: ../../Plugin.cs:194
+#, csharp-format
+msgid "Failed to load config: {0}"
+msgstr ""
+
+#: ../../Plugin.cs:210
+#: ../../MiscCommands.cs:316
+#, csharp-format
+msgid "Failed to save config: {0}"
+msgstr ""
+
+#: ../../Vanilla.cs:51
+#, csharp-format
+msgid "Failed to set parent group to {0}: {1}"
+msgstr ""
+
+#: ../../Hooks.cs:13
+#, csharp-format
+msgid "Hook (Detour) failed for \"{0}\": source is null"
+msgstr ""
+
+#: ../../Hooks.cs:26
+#, csharp-format
+msgid "Hook (Manipulate) failed for \"{0}\": source is null"
+msgstr ""
+
+#: ../../WorldGen.cs:71
+msgid "Inspecting tile frame, you may experience lag."
+msgstr ""
+
+#: ../../Timeout.cs:77
+msgid "Interval must be greater than 0!"
+msgstr ""
+
+#: ../../MiscCommands.cs:345
+msgid "Invalid command. Perhaps you can quote it?"
+msgstr ""
+
+#: ../../Timeout.cs:96
+msgid "Invalid id!"
+msgstr ""
+
+#: ../../Timeout.cs:72
+msgid "Invalid interval!"
+msgstr ""
+
+#: ../../MiscCommands.cs:26
+msgid "Invalid max players."
+msgstr ""
+
+#: ../../MiscCommands.cs:61
+#: ../../MiscCommands.cs:157
+msgid "Invalid player."
+msgstr ""
+
+#: ../../Timeout.cs:91
+msgid "Invalid syntax! Proper syntax: /clearinterval <id>"
+msgstr ""
+
+#: ../../Timeout.cs:67
+msgid "Invalid syntax! Proper syntax: /setinterval <command> <interval>"
+msgstr ""
+
+#: ../../Timeout.cs:42
+msgid "Invalid syntax! Proper syntax: /settimeout <command> <timeout>"
+msgstr ""
+
+#: ../../MiscCommands.cs:44
+msgid "Invalid syntax. Perhaps you can quote it?"
+msgstr ""
+
+#: ../../MiscCommands.cs:35
+msgid "Invalid syntax. Who and what to run?"
+msgstr ""
+
+#: ../../Timeout.cs:47
+msgid "Invalid timeout!"
+msgstr ""
+
+#: ../../Enhancements.cs:185
+msgid "IPv6 dual stack enabled."
+msgstr ""
+
+#: ../../Json.cs:69
+#, csharp-format
+msgid "Json deserialize got undefined pair in object {0} (\"{1}\": {2})"
+msgstr ""
+
+#: ../../Plugin.cs:445
+msgid ""
+"Listening on existing address, attempts to enable IPv6 dual-stack without "
+"-ip."
+msgstr ""
+
+#: ../../Mitigations.cs:671
+msgid ""
+"Main.ActiveWorldFileData is null. This probably indicates your world is "
+"corrupted."
+msgstr ""
+
+#: ../../MiscCommands.cs:22
+#, csharp-format
+msgid "Max players set to {0}."
+msgstr ""
+
+#: ../../MiscCommands.cs:15
+#, csharp-format
+msgid "Max players: {0}"
+msgstr ""
+
+#: ../../MiscCommands.cs:165
+msgid "More than 20 players will be reset. Use -f to force."
+msgstr ""
+
+#: ../../Mitigations.cs:483
+#: ../../Mitigations.cs:538
+#, csharp-format
+msgid "Nearby players: {0:F1}"
+msgstr ""
+
+#: ../../MiscCommands.cs:244
+msgid "No accounts found."
+msgstr ""
+
+#: ../../MiscCommands.cs:325
+msgid "No command given."
+msgstr ""
+
+#: ../../Timeout.cs:102
+#: ../../Timeout.cs:123
+msgid "No commands found!"
+msgstr ""
+
+#: ../../PermissionCheck.cs:56
+msgid "No permission check history found."
+msgstr ""
+
+#: ../../PermissionCheck.cs:60
+msgid "Permission check history:"
+msgstr ""
+
+#: ../../Ping.cs:96
+msgid "Ping failed."
+msgstr ""
+
+#: ../../Ping.cs:92
+#, csharp-format
+msgid "Ping: {0:F1}ms"
+msgstr ""
+
+#: ../../Mitigations.cs:447
+#, csharp-format
+msgid "Set field \"{0}\" to \"{1}\"."
+msgstr ""
+
+#: ../../WorldGen.cs:33
+#, csharp-format
+msgid "Testing tile frame {0},{1}, granularity {2},{3}"
+msgstr ""
+
+#: ../../WorldGen.cs:46
+#, csharp-format
+msgid "Testing tile frame {0},{1}..."
+msgstr ""
+
+#: ../../WorldGen.cs:39
+#, csharp-format
+msgid "Testing tile frame {0}..."
+msgstr ""
+
+#: ../../Json.cs:29
+msgid "The config is empty"
+msgstr ""
+
+#: ../../TileProvider/Misc.cs:79
+msgid "Tile provider set to checkedgeneric."
+msgstr ""
+
+#: ../../TileProvider/Misc.cs:74
+msgid "Tile provider set to checkedtyped."
+msgstr ""
+
+#: ../../TileProvider/Misc.cs:69
+msgid "Tile provider set to constilation."
+msgstr ""
+
+#: ../../TileProvider/Misc.cs:59
+msgid "Tile provider set to default."
+msgstr ""
+
+#: ../../TileProvider/Misc.cs:64
+msgid "Tile provider set to heaptile."
+msgstr ""
+
+#: ../../WorldGen.cs:51
+msgid "TileFrame completed without error."
+msgstr ""
+
+#: ../../Timeout.cs:52
+msgid "Timeout must be greater than 0!"
+msgstr ""
+
+#: ../../Plugin.cs:34
+#, csharp-format
+msgid "TShock is running under {0}, some features may not work."
+msgstr ""
+
+#: ../../Mitigations.cs:453
+#, csharp-format
+msgid "Unexpected AcceptPartialUpdatedConfig {0}"
+msgstr ""
+
+#: ../../Mitigations.cs:314
+#, csharp-format
+msgid "Unexpected coin {0}"
+msgstr ""
+
+#: ../../Enhancements.cs:88
+#, csharp-format
+msgid "Unexpected option {0}"
+msgstr ""
+
+#: ../../Json.cs:183
+#, csharp-format
+msgid "Unknown packet type: {0}"
+msgstr ""
+
+#: ../../Json.cs:198
+msgid "Unreachable code: PacketFilter is not a bool or string"
+msgstr ""
+
+#: ../../Json.cs:104
+msgid "Unreachable code: ReadJson is not a Optional"
+msgstr ""
+
+#: ../../Json.cs:96
+msgid "Unreachable code: WriteJson is not a Optional"
+msgstr ""
+
+#: ../../LangCommand.cs:59
+#, csharp-format
+msgid "Unrecognized culture {0}"
+msgstr ""
+
+#: ../../Modded.cs:64
+#, csharp-format
+msgid ""
+"Unusual name change detected: {0} claimed the name \"{1}\" but previously "
+"known as {2}"
+msgstr ""
+
+#: ../../Modded.cs:82
+#, csharp-format
+msgid "Unusual packet {0} detected at state {1} and disconnected. ({2})"
+msgstr ""
+
+#: ../../TileProvider/Misc.cs:82
+msgid ""
+"Usage: /tileprovider "
+"<default|heaptile|constilation|checkedtyped|checkedgeneric>"
+msgstr ""
+
+#: ../../MiscCommands.cs:137
+msgid "You do not have permission to reset all players characters."
+msgstr ""
+
+#: ../../MiscCommands.cs:151
+msgid "You do not have permission to reset other players characters."
+msgstr ""
+
+#: ../../WorldGen.cs:34
+msgid "You may experience lag."
+msgstr ""
+
+#: ../../MiscCommands.cs:180
+msgid "Your character data will be reset. Use -f to force."
+msgstr ""
+
