@@ -188,7 +188,7 @@
 
   // 健壮性修复设置
   "Soundness": {
-    // 是否限制弹丸类物品修改地形（如液体炸弹）
+    // 是否限制弹幕类物品修改地形（如液体炸弹）
     "ProjectileKillMapEditRestriction": true,
 
     // 是否要求快速堆叠需要建筑权限
