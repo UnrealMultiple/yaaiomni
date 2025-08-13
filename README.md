@@ -150,7 +150,7 @@
     //        None(都不踢), Known(踢未验证IP者), Unhandled(不处理)
     "NameCollision": "Unhandled",
 
-    // 图格数据提供方式
+    // 地图图格提供器
     // 可选值: AsIs(默认), CheckedTypedCollection, CheckedGenericCollection
     "TileProvider": "AsIs",
 
@@ -303,7 +303,7 @@
       "4/20"    // 20秒内不超过4条消息
     ],
 
-    // 是否限制NPCbuff更新频率（防止网络风暴）
+    // 是否限制NPCBuff更新频率（防止网络风暴）
     "NpcUpdateBuffRateLimit": false,
 
     // 终端标题抑制模式
