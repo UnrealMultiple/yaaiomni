@@ -30,12 +30,22 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Compile Include="..\Shared\**\*.cs"/>
-    <EmbeddedResource Include=".\i18n\*.mo">
-      <LogicalName>i18n.%(FileName).mo</LogicalName>
-    </EmbeddedResource>
-  </ItemGroup>
+    <ItemGroup>
+        <Compile Include="..\Shared\**\*.cs"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PoFiles Include=".\i18n\*.po" />
+    </ItemGroup>
+
+    <Target Name="CompilePoFiles" BeforeTargets="BeforeResolveReferences">
+        <Exec Command="msgfmt -o %(PoFiles.Filename).mo %(PoFiles.FullPath)" />
+        <ItemGroup>
+            <EmbeddedResource Include=".\i18n\%(PoFiles.Filename).mo">
+                <LogicalName>i18n.%(PoFiles.Filename).mo</LogicalName>
+            </EmbeddedResource>
+        </ItemGroup>
+    </Target>
 
   <ItemGroup>
     <PackageReference Include="TShock" Version="5.2.2">

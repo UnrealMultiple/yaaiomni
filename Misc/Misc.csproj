@@ -29,14 +29,7 @@
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
-
-  <ItemGroup>
-    <Compile Include="..\Shared\**\*.cs"/>
-    <EmbeddedResource Include=".\i18n\*.mo">
-      <LogicalName>i18n.%(FileName).mo</LogicalName>
-    </EmbeddedResource>
-  </ItemGroup>
-
+    
   <ItemGroup>
     <Compile Include="../Core/LanguagePolyfill.cs" />
     <None Include="..\README.md" Link="README.md">
@@ -57,6 +50,24 @@
     </ProjectReference>
     <ProjectReference Include="..\SourceGen\SourceGen.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
   </ItemGroup>
+
+    <ItemGroup>
+        <Compile Include="..\Shared\**\*.cs"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PoFiles Include=".\i18n\*.po" />
+    </ItemGroup>
+
+    <Target Name="CompilePoFiles" BeforeTargets="BeforeResolveReferences">
+        <Exec Command="msgfmt -o %(PoFiles.Filename).mo %(PoFiles.FullPath)" />
+        <ItemGroup>
+            <EmbeddedResource Include=".\i18n\%(PoFiles.Filename).mo">
+                <LogicalName>i18n.%(PoFiles.Filename).mo</LogicalName>
+            </EmbeddedResource>
+        </ItemGroup>
+    </Target>
+    
 
   <Target Name="githash" BeforeTargets="PreBuildEvent">
     <Exec Command="git rev-list --count HEAD" ContinueOnError="true" ConsoleToMSBuild="true">
