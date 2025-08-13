@@ -52,17 +52,17 @@
   </ItemGroup>
 
     <ItemGroup>
-        <Compile Include="..\Shared\**\*.cs"/>
+        <Compile Include="../Shared/**/*.cs"/>
     </ItemGroup>
 
     <ItemGroup>
-        <PoFiles Include=".\i18n\*.po" />
+        <PoFiles Include="./i18n/*.po" />
     </ItemGroup>
 
     <Target Name="CompilePoFiles" BeforeTargets="BeforeResolveReferences">
-        <Exec Command="msgfmt -o %(PoFiles.Filename).mo %(PoFiles.FullPath)" />
+        <Exec Command="msgfmt -o ./i18n/%(PoFiles.Filename).mo ./i18n/%(PoFiles.Filename).po" />
         <ItemGroup>
-            <EmbeddedResource Include=".\i18n\%(PoFiles.Filename).mo">
+            <EmbeddedResource Include="./i18n/%(PoFiles.Filename).mo">
                 <LogicalName>i18n.%(PoFiles.Filename).mo</LogicalName>
             </EmbeddedResource>
         </ItemGroup>
