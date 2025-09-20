@@ -25,6 +25,15 @@ public class Config
     /// </summary>
     public Optional<bool> PrioritizedPacketHandle = Optional.Default(true);
 
+    
+    /// <summary>
+    /// The wildcard of self player.
+    /// </summary>
+    public Optional<List<string>> SelfWildcardFormat = Optional.Default(new List<string> {
+        "*self*"
+    });
+
+    
     /// <summary>
     /// The wildcard of matching all players. Directly using "*" itself is not
     /// suggested as some commands might have special meaning for it.
